@@ -6,9 +6,22 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+<<<<<<< HEAD
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
+=======
+<<<<<<< HEAD
+        "fruitcake/laravel-cors": "^2.0.5",
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^9.0",
+        "laravel/sanctum": "^2.14",
+=======
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^9.2",
+        "laravel/sanctum": "^2.14.1",
+>>>>>>> 33f3afee439283cc167e3ce29672409963034fe3
+>>>>>>> fcf6bf3dac1b8f3623f71b55961fd7f4f4640f5b
         "laravel/tinker": "^2.7"
     },
     "require-dev": {
