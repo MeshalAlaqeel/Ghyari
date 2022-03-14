@@ -58,7 +58,11 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
+<<<<<<< HEAD
             'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -t -i'),
+=======
+            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+>>>>>>> 33f3afee439283cc167e3ce29672409963034fe3
         ],
 
         'log' => [
