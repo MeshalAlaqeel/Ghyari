@@ -40,17 +40,11 @@
                 </div>
             @endif
 
-<<<<<<< HEAD
-=======
+
                 <div class="test">
                     <p>Hi</p>
                 </div>
-<<<<<<< HEAD
-                check77
-=======
-                check2
->>>>>>> a5e423a6e9b21464507969d30919099a247b5dd0
->>>>>>> fcf6bf3dac1b8f3623f71b55961fd7f4f4640f5b
+                chick777
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
