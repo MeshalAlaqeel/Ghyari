@@ -46,10 +46,23 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fcf6bf3dac1b8f3623f71b55961fd7f4f4640f5b
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+<<<<<<< HEAD
+=======
+=======
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'ghyari'),
             'username' => env('DB_USERNAME', 'root'),
+>>>>>>> 33f3afee439283cc167e3ce29672409963034fe3
+>>>>>>> fcf6bf3dac1b8f3623f71b55961fd7f4f4640f5b
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',

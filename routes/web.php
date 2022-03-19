@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\bdcontroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::view('home','wlc');
+
+Route::get('/we' , function () {
+    return view('WE');
+});
 Route::view('dbb','db');
 Route::post('dbb',[bdcontroller::class,'add']);
+
