@@ -16,5 +16,6 @@ use App\Http\Controllers\bdcontroller;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::view('home','wlc');
 Route::view('dbb','db');
 Route::post('dbb',[bdcontroller::class,'add']);
