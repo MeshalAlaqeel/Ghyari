@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\bdcontroller;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +15,19 @@ use App\Http\Controllers\bdcontroller;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::view('home','wlc');
 
-Route::get('/we' , function () {
-    return view('WE');
-});
-Route::view('dbb','db');
-Route::post('dbb',[bdcontroller::class,'add']);
+// GETs
+
+Route::get('/register',[userController::class, 'showRegister']);
+Route::get('/login',[userController::class, 'showLogin']);
+Route::get('/loggedin',[userController::class, 'showLoggedin']);
+Route::get('/logout',[userController::class, 'logout']);
+
+
+
+
+// POSTs
+
+Route::post('/register' , [userController::class, 'register'])->name('register');
+Route::post('/login' , [userController::class, 'login'])->name('login');
 

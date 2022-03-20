@@ -1,0 +1,62 @@
+@extends('includes.master')
+
+@section('title')
+    Register
+@endsection
+
+@section('style')
+    <link rel="stylesheet" href="css/login.css">
+@endsection
+
+@section('content')
+
+
+    <div class="container">
+
+        @if ($errors->any())
+            
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li style="color: red">{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
+
+        @if (session()->has('success'))
+            <div style="color: green">{{session()->get('success')}}</div>
+        @endif
+        @if (session()->has('fail'))
+            <div style="color: red">{{session()->get('fail')}}</div>
+        @endif
+        
+        <form action="{{route('register')}}" method="post" class="login-email">
+            @csrf
+            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
+            
+            <div class="input-group">
+                <input type="email" placeholder="Email" name="email" value="{{old('email')}}" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="User Name" name="username" value="{{old('username')}}" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" name="password"  required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Confirm Password" name="Confirm-password"  required>
+            </div>
+            <div class="input-group">
+                <button name="submit" class="btn">Register</button>
+            </div>
+            <p class="login-register-text">Have an account? <a href="login">Login Here</a>.</p>
+
+        </form>
+
+    </div>
+    
+
+@endsection  {{-- End content --}}
+
+@section('scripts')
+    
+@endsection
