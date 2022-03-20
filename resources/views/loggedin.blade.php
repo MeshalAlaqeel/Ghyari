@@ -5,17 +5,14 @@
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="css/login.css">
+    
 @endsection
 
 @section('content')
     
     
-    <div style="font-size:40px; color:lightseagreen ">
+    <div style="font-size:40px; color:lightseagreen; margin-left: 600px; margin-top: 300px">
         Welcome
-        <div>
-            <a href="logout">Logout</a>
-        </div>
     </div>
 
 

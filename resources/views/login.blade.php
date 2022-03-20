@@ -1,4 +1,4 @@
-@extends('includes.master')
+@extends('includes.log')
 
 @section('title')
     Login

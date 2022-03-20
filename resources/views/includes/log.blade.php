@@ -1,4 +1,4 @@
-@extends('includes.navbar')
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +9,8 @@
     
     <title> @yield('title' , 'Home') </title>
     
-    
     @yield('style')
+    
 </head>
 <body>
 
