@@ -1,4 +1,6 @@
-
+body{
+    background-color: white;
+}
 ul{
     list-style: none;
 }
@@ -15,6 +17,7 @@ nav{
     left: 0;
     top: 0;
     z-index: 100;
+    background-color: rgb(51, 204, 189);
 }
 .logo img{
     margin-top: 5px;
@@ -38,7 +41,7 @@ nav .menu li a{
     font-size: 0.8rem;
     text-transform: uppercase;
     font-weight: 500;
-    color:yellow;
+    color:white;
     letter-spacing: 1px;
     border-radius: 10px;
 }
@@ -46,7 +49,7 @@ nav .menu li a{
 .search{
     width:250px;
     height: 40px;
-    background-color:rgba(255, 255, 0, 0.562);
+    background-color:white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,14 +65,17 @@ nav .menu li a{
     background-color: transparent;
 }
 ::placeholder{
-    color: black;
+    color: rgb(51, 204, 189);
 }
 .search i{
     color:#3a3a3a;
 }
 nav .menu li a:hover{
-    background-color: yellow;
-    color:black;
+    background-color: white;
+    color:rgb(129, 216, 208);
     box-shadow: 5px 10px 30px rgba(53,53,53,0.1);
     transition: all ease 0.2s;
+}
+.container {
+    margin-top: 80px;
 }

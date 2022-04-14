@@ -38,7 +38,7 @@
             <div class="input-group">
                 <input type="password" placeholder="Password" name="password" required >
             </div>
-            <p style="margin-bottom: 10px;"><a href="#">forgot your password?</a></p>
+            <p style="margin-bottom: 10px;"><a href="forgetPassword">forgot your password?</a></p>
             <div class="input-group">
                 <button name="submit" class="btn">Login</button>
             </div>

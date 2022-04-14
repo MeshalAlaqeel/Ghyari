@@ -4,7 +4,7 @@
 @section('navbar')
     <nav>
         <a href="loggedin" class="logo">
-            <img src="image/ghyari.jpeg"/>
+            <img src="image/ghyari.png"/>
         </a>
         <!--------menu-->
         <ul class="menu" id="centermenu">

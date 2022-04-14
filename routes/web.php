@@ -19,10 +19,13 @@ use App\Http\Controllers\userController;
 // GETs
 
 Route::get('/register',[userController::class, 'showRegister']);
-Route::get('/login',[userController::class, 'showLogin']);
+Route::get('/login',[userController::class, 'showLogin'])->name('showLogin');
 Route::get('/loggedin',[userController::class, 'showLoggedin']);
 Route::get('/logout',[userController::class, 'logout']);
-
+Route::get('/forgetPassword',[userController::class, 'showForgetPassword']);
+//Route::get('/resetPassword',[userController::class, 'showResetPassword']);
+Route::get('/resetPassword/{token}',[userController::class, 'showResetPassword'])->name('showResetPassword');
+Route::get('/editInformation',[userController::class, 'showEditInformation']);
 
 
 
@@ -30,4 +33,5 @@ Route::get('/logout',[userController::class, 'logout']);
 
 Route::post('/register' , [userController::class, 'register'])->name('register');
 Route::post('/login' , [userController::class, 'login'])->name('login');
-
+Route::post('/forgetPassword',[userController::class, 'sendResetLink'])->name('sendResetLink');
+Route::post('/resetPassword',[userController::class, 'resetPassword'])->name('resetPassword');
