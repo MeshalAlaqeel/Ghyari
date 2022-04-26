@@ -46,7 +46,7 @@
             <div class="input-group">
                 <button name="submit" type="submit" class="btn">Reset</button>
             </div>
-            <p class="login-register-text">Want to login? <a href="../login">Login Here</a>.</p>
+            <p class="login-register-text">Want to login? <a href="{{route('showLogin')}}">Login Here</a>.</p>
 
         </form>
 

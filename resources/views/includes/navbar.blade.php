@@ -1,5 +1,5 @@
 @section('navbar-style')
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 @show
 @section('navbar')
     <nav>
@@ -8,7 +8,7 @@
         </a>
         <!--------menu-->
         <ul class="menu" id="centermenu">
-            <li><a href="loggedin">Home</a></li>
+            <li><a href="{{route('showLoggedin')}}">Home</a></li>
             <li><a href="#">Order</a></li>
             <li><a href="#">Items</a></li>
             <li><a href="#">account</a></li>
@@ -25,7 +25,7 @@
         </div>
         <!---login---------->
         <ul class="menu" id="loginmenu">
-            <li id="login" class="show-btn"><a href="logout">logout</a></li>
+            <li id="login" class="show-btn"><a href="{{route('logout')}}">logout</a></li>
         </ul>
         
     </nav>

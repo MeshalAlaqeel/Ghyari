@@ -1,7 +1,7 @@
 @extends('includes.master')
 
 @section('title')
-    Login
+    Home
 @endsection
 
 @section('style')
@@ -15,6 +15,14 @@
         Welcome
         <a href="editInformation">Edit Information</a>
     </div>
+    
+    @foreach ($items as $item)
+        {{$item->name}}
+        <br>
+        <img src="/image/{{$item->image}}" alt="" style="height: 200px; width:200px;">
+        <br>
+        
+    @endforeach
 
 
 @endsection {{-- End content --}}

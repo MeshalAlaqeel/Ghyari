@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+.card {
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.3);
+    height: 300px;
+    overflow: hidden;
+    width: 200px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.card > figure {
+    width: 90%;
+    margin: 20px auto 0 auto;
+}
+
+.card > figure > img {
+    width: 100%;
+}
+
+.details {
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 74%;
+    width: 100%;
+    transition: box-shadow .3s ease-in-out,
+                top .3s ease-in-out;
+}
+
+.card:hover .details {
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.3);
+    top: 50%;
+}
+
+.details > .min-details{
+    margin-bottom: 20px;
+}
+
+.details > .min-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details > .min-details > h1{
+    color: #000000;
+    display: block;
+    font-size: .9rem;
+    font-weight: 400;
+    font-weight: bold;
+}
+.details > .min-details > h1 > span {
+    color: #000000;
+    display: block;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.btn , .dlt_btn {
+    background-color: #192a56;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    width: 100%;
+    transition: box-shadow .3s ease-in-out,
+                transform .3s ease-in-out;
+}
+
+.btn:hover , .dlt_btn:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,.3);
+  transform: translateY(-2px);
+}

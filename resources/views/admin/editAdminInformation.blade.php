@@ -1,7 +1,7 @@
-@extends('includes.master')
+@extends('includes.admin')
 
 @section('title')
-    Edit Information
+    Admin Home
 @endsection
 
 @section('style')
@@ -56,20 +56,6 @@
                 </div>
             </div>
         </form>
-        <form action="{{route('deleteAccount')}}" method="post" class="login-email">
-            @csrf
-            <input type="hidden" name="email" value="{{$user->email }}">
-            <div class="1">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="p-3 py-5">
-                            <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit">Delete Account</button></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        
 
     </div> {{-- end main --}}
     
