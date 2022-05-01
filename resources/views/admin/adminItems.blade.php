@@ -23,15 +23,22 @@
             </ul>
         @endif
 
-        @if (session()->has('success'))
-            <div style="color: green">{{session()->get('success')}}</div>
+        @if (!empty($success))
+            <div style="color: green">{{$success}}</div>
         @endif
-        @if (session()->has('fail'))
-            <div style="color: red">{{session()->get('fail')}}</div>
+        @if (!empty($fail))
+            <div style="color: red">{{$fail}}</div>
         @endif
 
 
-        <div style="width:700px; margin:50 auto; margin-left: 300px;">
+        <div style="width:700px; margin:50 auto; margin-left: 200px;">
+            <div class="search">
+                <form action="{{route('searchItem')}}" method="post">
+                    @csrf
+                    <input type="text" placeholder="Search" name="search"/>
+                </form>
+                <i class="fa fa-search icons"></i>
+            </div>
             <div class="items">
                 @if (!empty($items))
                     <table class="table">
@@ -53,7 +60,7 @@
                                         <td>{{$item->quantity }}<br/></td>
                                         <td>{{$item->category }}<br/></td>
                                         <td>
-                                            <a href="/itemPage/{{$item->id}}"><input type="submit" value="Show Item" name="disableAccount" class="dlt_btn" style="width:100px;"></a>
+                                            <a href="/adminItemPage/{{$item->id}}"><input type="submit" value="Show Item" name="disableAccount" class="dlt_btn" style="width:100px;"></a>
                                         </td>
                                     </tr>
                             @endforeach

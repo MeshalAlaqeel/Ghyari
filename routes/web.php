@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\userController;
 use App\Http\Controllers\itemController;
+use App\Http\Controllers\cart_itemController;
+use App\Http\Controllers\wish_itemController;
+use App\Http\Controllers\remindMe_itemController;
+use App\Http\Controllers\commentController;
+use App\Http\Controllers\rateController;
+use App\Models\comment;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +21,6 @@ use App\Http\Controllers\itemController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
 //--------------------------------User-Controller-------------------------------------//
 
@@ -45,6 +49,7 @@ Route::post('/editInformation',[userController::class, 'editInformation'])->name
 Route::post('/disableAccount',[userController::class, 'disableAccount'])->name('disableAccount');
 Route::post('/enableAccount',[userController::class, 'enableAccount'])->name('enableAccount');
 Route::post('/deleteAccount',[userController::class, 'deleteAccount'])->name('deleteAccount');
+Route::post('/searchUser' , [userController::class, 'searchUser'])->name('searchUser');//admin User
 
 //-------------------------------End-User-Controller-------------------------------------//
 
@@ -54,8 +59,12 @@ Route::post('/deleteAccount',[userController::class, 'deleteAccount'])->name('de
 // GETs
 
 Route::get('/addItem',[itemController::class, 'showAddItem'])->name('showAddItem');
+Route::get('/adminItems',[itemController::class, 'showAdminItems'])->name('showAdminItems');
+Route::get('/adminItemPage/{id}',[itemController::class, 'showAdminItemPage'])->name('showAdminItemPage');
 Route::get('/items',[itemController::class, 'showItems'])->name('showItems');
 Route::get('/itemPage/{id}',[itemController::class, 'showItemPage'])->name('showItemPage');
+// Route::get('/cart',[itemController::class, 'showCart'])->name('showCart');
+// Route::get('/search',[itemController::class, 'showSearch'])->name('showSearch');
 
 
 // POSTs
@@ -63,7 +72,88 @@ Route::get('/itemPage/{id}',[itemController::class, 'showItemPage'])->name('show
 Route::post('/addItem' , [itemController::class, 'addItem'])->name('addItem');
 Route::post('/editItem' , [itemController::class, 'editItem'])->name('editItem');
 Route::post('/deleteItem' , [itemController::class, 'deleteItem'])->name('deleteItem');
+Route::post('/search' , [itemController::class, 'search'])->name('search');//search User
+Route::post('/searchItem' , [itemController::class, 'searchItem'])->name('searchItem');//admin User
 
 
 
 //-------------------------------End-Item-Controller-------------------------------------//
+
+//--------------------------------cart_item-Controller-------------------------------------//
+
+
+// GETs
+
+Route::get('/cart',[cart_itemController::class, 'showCart'])->name('showCart');
+
+
+// POSTs
+
+Route::post('/addToCart' , [cart_itemController::class, 'addToCart'])->name('addToCart');
+Route::post('/deleteFromCart' , [cart_itemController::class, 'deleteFromCart'])->name('deleteFromCart');
+Route::post('/editFromCart' , [cart_itemController::class, 'editFromCart'])->name('editFromCart');
+
+
+
+//-------------------------------End-cart_item-Controller-------------------------------------//
+
+//--------------------------------wish_item-Controller-------------------------------------//
+
+
+// GETs
+
+Route::get('/wish',[wish_itemController::class, 'showWish'])->name('showWish');
+
+
+// POSTs
+
+Route::post('/addToWish' , [wish_itemController::class, 'addToWish'])->name('addToWish');
+Route::post('/deleteFromWish' , [wish_itemController::class, 'deleteFromWish'])->name('deleteFromWish');
+
+
+//-------------------------------End-wish_item-Controller-------------------------------------//
+
+//--------------------------------RemindMe_item-Controller-------------------------------------//
+
+
+// GETs
+
+Route::get('/RemindMe',[RemindMe_itemController::class, 'showRemindMe'])->name('showRemindMe');
+
+
+// POSTs
+
+Route::post('/addToRemindMe' , [RemindMe_itemController::class, 'addToRemindMe'])->name('addToRemindMe');
+Route::post('/deleteFromRemindMe' , [RemindMe_itemController::class, 'deleteFromRemindMe'])->name('deleteFromRemindMe');
+
+
+//-------------------------------End-RemindMe_item-Controller-------------------------------------//
+
+//--------------------------------Comment-Controller-------------------------------------//
+
+
+// GETs
+
+
+
+// POSTs
+
+Route::post('/addComment' , [commentController::class, 'addComment'])->name('addComment');
+Route::post('/deleteComment' , [commentController::class, 'deleteComment'])->name('deleteComment');
+
+
+//-------------------------------End-Comment-Controller-------------------------------------//
+
+//--------------------------------Rate-Controller-------------------------------------//
+
+
+// GETs
+
+
+
+// POSTs
+
+Route::post('/addRating' , [rateController::class, 'addRating'])->name('addRating');
+
+
+//-------------------------------End-Rate-Controller-------------------------------------//

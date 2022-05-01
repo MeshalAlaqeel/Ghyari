@@ -6,7 +6,9 @@ Google Fonts Import Link
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
+body {
+  background-color: #f0f0f5;
+}
 .sidebar{
   position: fixed;
   top: 0;

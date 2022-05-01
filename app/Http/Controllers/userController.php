@@ -77,8 +77,8 @@ class userController extends Controller
         
         if (Session::has('loginId')) {
             Session::pull('loginId');
-            return redirect('login');
         }
+        return redirect('login');
     }
     
     public function sendResetLink (Request $request) {
@@ -160,7 +160,7 @@ class userController extends Controller
             'active'=>(2)
         ]);
 
-        return redirect()->back()->with('success','Account Disabled successfully');
+        return redirect('disableAccount')->with('success','Account Disabled successfully');
 
     }
     public function enableAccount(Request $request) {
@@ -169,7 +169,7 @@ class userController extends Controller
             'active'=>(1)
         ]);
 
-        return redirect()->back()->with('success','Account Enabled successfully');
+        return redirect('disableAccount')->with('success','Account Enabled successfully');
 
     }
     public function deleteAccount(Request $request) {
@@ -180,6 +180,22 @@ class userController extends Controller
         Session::pull('loginId');
         return redirect('login')->with('success','Account Deleted successfully');
 
+    }
+    public function searchUser (Request $request) { // admin search
+        if (Session::has('loginId') ) {
+            if (session()->get('loginRole')==1) {
+                $users = DB::table('users')->where("username", "LIKE", "%".$request->search."%")->get();
+                
+                if($users->count() > 0) 
+                    return view('admin.searchUser')->with(['success'=>'Your search about "'.$request->search.'"' ,'users'=>$users]);
+                else
+                    return view('admin.searchUser')->with(['fail'=>'No users found about your search! "' .$request->search.'"','users'=>$users]);
+            }else {
+                return redirect('loggedin');
+            }
+        }else {
+            return redirect('login');
+        }
     }
 
 
@@ -268,14 +284,7 @@ class userController extends Controller
             return redirect('login');
         }
     }
-    // public function showDeleteAccount () {
-    //     if (Session::has('loginId') && session()->get('loginRole')==2) {
-    //         $user = User::where('id' , session()->get('loginId'))->first();
-    //         return view('user.')->with(['user' => $user]);
-    //     }else {
-    //         return redirect('login');
-    //     }
-    // }
+    
 
 
 }

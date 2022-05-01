@@ -1,0 +1,102 @@
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.col-2 img{
+    max-width: 100%;
+    padding: 50px 0;
+}
+
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+}
+
+.btn{
+    display: inline-block;
+    background: #00CED1;
+    color: black;
+    padding: 8px 30px;
+    margin: 10px 0;
+    border-radius: 30px;
+    transition: background 0.5;
+}
+.acart{
+    font-size: 18px;
+}
+
+.btn:hover{
+    background: #14a0a0;
+}
+
+.col-4{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 300px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+    border:1px solid black;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.col-4 img{
+    width: 100%;
+}
+/* 
+.title{
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+
+.title::after{
+    content: "";
+    background: #81D8D0;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+} */
+
+.h4{
+    color: #555;
+    font-weight: normal;
+}
+
+.col-4{
+    font-size: 14px;
+
+}
+
+.col-4:hover{
+    transform: translateY(-5px);
+}
+
+
+.col-2, .offer-img{
+padding: 50px;
+width: 120px;
+}
+
+    /* -----------------All products Page---------------- */
+.row-2{
+    justify-content: space-between;
+    margin-left: 100px auto 50px;
+}
+/* 
+select{
+    border: 1px solid #3b0d06;
+    padding: 5px;
+}
+select:focus{
+    outline: none;
+} */

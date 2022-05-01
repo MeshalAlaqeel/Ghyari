@@ -25,7 +25,7 @@ nav{
 }
 nav #centermenu{
     display: flex;
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
 nav #loginmenu{
     display: flex;
@@ -83,4 +83,65 @@ nav .menu li a:hover{
 }
 .container {
     margin-top: 100px;
+}
+.footer{
+    margin-top: 100px;
+    background: rgb(46, 46, 46);
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p{
+    color: #8a8a8a;
+}
+
+.footer h3{
+    color: #fff;
+    margin-bottom: 20px;
+
+}
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+    min-width: 250px;
+    margin-bottom: 20px;
+
+}
+
+.footer-col-1{
+    flex-basis: 30%;
+}
+
+.footer-col-2{
+    flex: 1;
+    align-items: center;
+}
+
+.footer-col-2 img{
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.footer hr{
+    border: none;
+    background:#b5b5b5;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.copyright{
+    text-align: center;
+}
+
+.menu-icon{
+    width:28px;
+    margin-left: 20px;
+    display: none;
+}
+.row{
+    display: flex;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+
 }

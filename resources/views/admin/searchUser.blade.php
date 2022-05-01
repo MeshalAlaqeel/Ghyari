@@ -25,11 +25,11 @@
             </ul>
         @endif
 
-        @if (session()->has('success'))
-            <div style="color: green">{{session()->get('success')}}</div>
+        @if (!empty($success))
+            <div style="color: green">{{$success}}</div>
         @endif
-        @if (session()->has('fail'))
-            <div style="color: red">{{session()->get('fail')}}</div>
+        @if (!empty($fail))
+            <div style="color: red">{{$fail}}</div>
         @endif
 
 
@@ -61,6 +61,7 @@
                                             <form action="{{route('disableAccount')}}" method="POST" >
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{$user->id }}">
+                                                <input type="hidden" name="users" value="{{$users }}">
                                                 <input type="submit" value="Disable" name="disableAccount" class="dlt_btn" style="width:100px;">
                                             </form>
                                         </td>

@@ -31,7 +31,7 @@
             <div style="color: red">{{session()->get('fail')}}</div>
         @endif
 
-        <form action="{{route('showItems')}}" method="post" class="login-email">
+        <form action="{{route('editItem')}}" method="post" class="login-email">
             @csrf
             <div class="container rounded bg-white mt-5">
                 <div class="row">
@@ -43,6 +43,7 @@
                                 </div>
                                 <h6 class="text-right">Edit Item</h6>
                             </div>
+                            <input type="hidden" name="itemId" value={{$item->id}}>
                             <div class="row mt-2">
                                 <div class="col-md-6"><input type="text" class="form-control" name="name" placeholder="Name" value="{{$item->name}}" required></div>
                             </div>
@@ -56,7 +57,7 @@
                                 <div class="col-md-6"><input type="text" class="form-control" name="quantity" placeholder="Quantity" value="{{$item->quantity}}" ></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-6"><img src="/image/{{$item->image}}" alt="" style="height: 50px; width:50px;"><input type="file" class="form-control" name="image" placeholder="Image" value="" ></div>
+                                <img src="/image/{{$item->image}}" alt="" style="height: 50px; width:50px;"><div class="col-md-6"><input type="file" class="form-control" name="image" placeholder="Image" value="" ></div>
                             </div>
                             <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit">Save Item</button></div>
                         </div>
@@ -67,8 +68,9 @@
         <form action="{{route('deleteItem')}}" method="post" class="login-email">
             @csrf
             <input type="hidden" name="id" value="{{$item->id }}">
-            <div class="1">
+            <div class="container rounded bg-white mt-5">
                 <div class="row">
+                    <h4>Delete Your Account</h4>
                     <div class="col-md-8">
                         <div class="p-3 py-5">
                             <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit">Delete Item</button></div>
@@ -77,19 +79,44 @@
                 </div>
             </div>
         </form>
+        <div class="container rounded bg-white mt-5" style="margin-bottom: 30px;">
+            <div class="row">
+                @if ($comments && count($comments) > 0 )
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>USER ID</td>
+                                <td>ITEM ID</td>
+                                <td>COMMENT</td>
+                                <td>CREATED_AT</td>
+                                <td>DELETE</td>
+                            </tr>
+                            @foreach ($comments as $comment)
+                                <tr>
+                                    <td>{{$comment->user_id }}<br/></td>
+                                    <td>{{$comment->item_id }}<br/></td>
+                                    <td>{{$comment->comment }}<br/></td>
+                                    <td>{{$comment->created_at }}<br/></td>
+                                    <td>
+                                        <form action="{{route('deleteComment')}}" method="POST" >
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$comment->id }}">
+                                            <input type="submit" value="Delete" name="deleteComment" class="dlt_btn" style="width:100px;">
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <h3 style="margin-top: -60px"> {{ "NO Comments" }} </h3>
+                @endif
+            </div>
+        </div>
+        
+        
 
     </div> {{-- end main --}}
-    
-    <script>
-        
-        function menu1() {
-            document.getElementById("item").classList.toggle("show");
-        }
-        function menu2() {
-            document.getElementById("order").classList.toggle("show");
-        }
-        
-    </script>
 
 @endsection  {{-- End content --}}
 

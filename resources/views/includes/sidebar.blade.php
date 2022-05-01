@@ -10,10 +10,10 @@
             <span class="logo_name">Ghyari</span>
         </div>
         <ul class="nav-links">
-            <li class="search-box">
+            {{-- <li class="search-box">
                 <i class="bx bx-search icon"></i>
                 <input type="text" placeholder="Search..." />
-            </li>
+            </li> --}}
             <li>
                 <a href="{{route('showAdminIndex')}}">
                     <i class="bx bx-grid-alt"></i>
@@ -25,14 +25,14 @@
             </li>
             <li>
                 <div class="iocn-link">
-                    <a href="{{route('showItems')}}">
+                    <a href="{{route('showAdminItems')}}">
                         <i class="bx bx-collection"></i>
                         <span class="link_name">All Items</span>
                     </a>
                     <i class="bx bxs-chevron-down arrow"></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="{{route('showItems')}}">All Items</a></li>
+                    <li><a class="link_name" href="{{route('showAdminItems')}}">All Items</a></li>
                     <li><a href="{{route('showAddItem')}}">Add Items</a></li>
                     <li><a href="#">Remove Items</a></li>
                 </ul>
