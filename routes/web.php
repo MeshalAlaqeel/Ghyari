@@ -46,6 +46,7 @@ Route::post('/login' , [userController::class, 'login'])->name('login');
 Route::post('/forgetPassword',[userController::class, 'sendResetLink'])->name('sendResetLink');
 Route::post('/resetPassword',[userController::class, 'resetPassword'])->name('resetPassword');
 Route::post('/editInformation',[userController::class, 'editInformation'])->name('editInformation');
+Route::post('/address',[userController::class, 'address'])->name('address');
 Route::post('/disableAccount',[userController::class, 'disableAccount'])->name('disableAccount');
 Route::post('/enableAccount',[userController::class, 'enableAccount'])->name('enableAccount');
 Route::post('/deleteAccount',[userController::class, 'deleteAccount'])->name('deleteAccount');

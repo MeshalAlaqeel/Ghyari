@@ -197,6 +197,32 @@ class userController extends Controller
             return redirect('login');
         }
     }
+    public function address (Request $request) {
+        
+        $exist = DB::table('address')->where([
+            'user_id'=>session()->get('loginId')
+        ])->first();
+        
+        if (!$exist) {
+            $address = DB::table('address')->insert([
+                'user_id' => session()->get('loginId'),
+                'address_name' => $request->name,
+                'lat' => $request->lat,
+                'lng'=> $request->lng,
+            ]);
+        } else {
+            $address = DB::table('address')->where ('user_id', session()->get('loginId'))->update([
+                'address_name' => $request->name,
+                'lat' => $request->lat,
+                'lng'=> $request->lng,
+            ]);
+        }
+        if ($address) {
+                return redirect()->back()->with('success','Address Saved successfully');
+            }else {
+                return redirect()->back()->with('fail','somehting worng');
+            }
+    }
 
 
 
@@ -263,7 +289,8 @@ class userController extends Controller
     public function showEditInformation () {
         if (Session::has('loginId') && session()->get('loginRole')==2) {
             $user = User::where('id' , session()->get('loginId'))->first();
-            return view('user.editInformation')->with(['user' => $user]);
+            $address = DB::table('address')->where("user_id", session()->get('loginId'))->first();
+            return view('user.editInformation')->with(['user' => $user , 'address' => $address]);
         }else {
             return redirect('login');
         }

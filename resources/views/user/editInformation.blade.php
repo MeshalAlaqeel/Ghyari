@@ -67,9 +67,38 @@
             </div>
         </div>
     </form>
+    <form action="{{route('address')}}" method="post" class="login-email">
+        @csrf
+        <div class="container rounded bg-white mt-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="text-right">Save Location</h6>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6"><input type="text" class="form-control" id="address" name="name" placeholder="address" value={{$address->address_name}} required></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6"><input type="hidden" class="form-control" id="latitude" name="lat" placeholder="lat" value={{$address->lat}} required></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6"><input type="hidden" class="form-control" id="longitude" name="lng" placeholder="lng" value={{$address->lng}} required ></div>
+                        </div>
+                        <div id="map" style="height: 500px; width: 1000px; margin-left: -160px">
+                            {{-- map --}}
+                        </div>
+                        <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit">Save Address</button></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
 @endsection  {{-- End content --}}
 
 @section('scripts')
-    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBlemcFr6vRpyLIy3ZQMynX7fI4UXW38A"></script>
+    <script type="text/javascript" src="js/googleMap.js"></script>
 @endsection
