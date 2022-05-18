@@ -11,8 +11,7 @@
 @section('content')
 
 
-    <div class="container">
-
+    <div class="message">
         @if ($errors->any())
             <ul>
                 @foreach ($errors->all() as $error)
@@ -27,25 +26,27 @@
         @if (session()->has('fail'))
             <div style="color: red">{{session()->get('fail')}}</div>
         @endif
+    </div>
+    <!---------------Enter Email--------------------->
+    <div class="center22">
         
+        <h1>Forget Password</h1>
+
         <form action="{{route('sendResetLink')}}" method="post" class="login-email">
             @csrf
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Forget Password</p>
-            <p>
-                Enter your e-mail to send you a link
-            </p>
-            <br>
-            <div class="input-group">
-                <input type="email" placeholder="Email" name="email" value="{{old('email')}}" required>
+            <br />
+            <p>Enter Your Email to send you a link</p>
+            <div class="txt_field">
+                <input type="email" name="email" value="{{old('email')}}" required>
+                <span></span>
+                <label>ُEmail</label>
             </div>
-            <div class="input-group">
-                <button name="submit" class="btn">Send</button>
-            </div>
-            <p class="login-register-text">Want to login? <a href="{{route('showLogin')}}">Login Here</a>.</p>
 
+            <input type="submit" value="Send" />
+            <div class="signup_link">Want to login? <a href="{{route('showLogin')}}">login here</a>.</div>
         </form>
-
     </div>
+
     
 
 @endsection  {{-- End content --}}

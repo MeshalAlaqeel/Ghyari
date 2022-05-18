@@ -11,8 +11,7 @@
 @section('content')
 
 
-    <div class="container">
-
+    <div class="message">
         @if ($errors->any())
             <ul>
                 @foreach ($errors->all() as $error)
@@ -27,31 +26,39 @@
         @if (session()->has('fail'))
             <div style="color: red">{{session()->get('fail')}}</div>
         @endif
-        
-        <form action="{{route('resetPassword')}}" method="post" class="login-email">
-            @csrf
-            <input type="hidden" name="token" value="{{$token}}">
-
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Reset Password</p>
-
-            <div class="input-group">
-                <input type="email" placeholder="Email" name="email" value="{{ $email ?? old ('email') }}" required>
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Password" name="password"  required>
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Confirm Password" name="Confirm-password"  required>
-            </div>
-            <div class="input-group">
-                <button name="submit" type="submit" class="btn">Reset</button>
-            </div>
-            <p class="login-register-text">Want to login? <a href="{{route('showLogin')}}">Login Here</a>.</p>
-
-        </form>
-
     </div>
+    <!---------------Enter New Password--------------------->
+<div class="center33">
     
+    <h1>Enter Your New Password</h1>
+
+    <form action="{{route('resetPassword')}}" method="post">
+        @csrf
+        <input type="hidden" name="token" value="{{$token}}">
+
+        <div class="txt_field">
+            <input type="email" name="email" value="{{ $email ?? old ('email') }}" required>
+            <span></span>
+            <label>ُEmail</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="password" name="password"  required>
+            <span></span>
+            <label>ُPassword</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="password" name="Confirm-password"  required>
+            <span></span>
+            <label>Confirm Password</label>
+        </div>
+
+        <input type="submit" value="Reset" />
+        <div class="signup_link">Want to login? <a href="{{route('showLogin')}}">Login here</a></div>
+    </form>
+</div>
+
 
 @endsection  {{-- End content --}}
 

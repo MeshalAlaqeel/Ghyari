@@ -67,7 +67,7 @@
             </div>
         </div>
     </form>
-    <form action="{{route('address')}}" method="post" class="login-email">
+    <form action="{{route('address')}}" method="post" class="">
         @csrf
         <div class="container rounded bg-white mt-5">
             <div class="row">

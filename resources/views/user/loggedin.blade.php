@@ -13,7 +13,13 @@
     
     <div style="font-size:40px; color:lightseagreen; margin-left: 600px; margin-top: 300px">
         Welcome
-        <a href="editInformation">Edit Information</a>
+        <br>
+        <a href="{{route('showEditInformation')}}">Edit Information</a>
+        <br>
+        <a href="{{route('showAddCreditCard')}}">Add Credit Card</a>
+        <br>
+        <a href="{{route('showCreditCards')}}">Credit Cards</a>
+        
     </div>
     
     @foreach ($items as $item)

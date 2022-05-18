@@ -10,11 +10,8 @@
 
 @section('content')
     
-    
-    <div class="container">
-
+    <div class="message">
         @if ($errors->any())
-            
             <ul>
                 @foreach ($errors->all() as $error)
                     <li style="color: red">{{$error}}</li>
@@ -28,27 +25,35 @@
         @if (session()->has('fail'))
             <div style="color: red">{{session()->get('fail')}}</div>
         @endif
-
-        <form action="{{route('login')}}" method="post" class="login-email">
-            @csrf
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
-            <div class="input-group">
-                <input type="email" placeholder="Email" name="email" value="{{ $email ?? old ('email') }}" required>
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Password" name="password" required >
-            </div>
-            <p style="margin-bottom: 10px;"><a href="{{route('showForgetPassword')}}">forgot your password?</a></p>
-            <div class="input-group">
-                <button name="submit" class="btn">Login</button>
-            </div>
-            <p class="login-register-text">Don't have an account? <a href="{{route('showRegister')}}">Register Here</a>.</p>
-
-        </form>
-        
-
     </div>
 
+    <div class="center">
+
+        
+
+        <h1>Log in</h1>
+    
+        <form action="{{route('login')}}" method="post">
+            @csrf
+            <div class="txt_field">
+                <input type="email" name="email" value="{{ $email ?? old ('email') }}" required>
+                <span></span>
+                <label>ُEmail</label>
+            </div>
+    
+            <div class="txt_field">
+                <input type="password" name="password" required >
+                <span></span>
+                <label>Password</label>
+            </div>
+    
+            <div class="pass"><a href="{{route('showForgetPassword')}}" style="color: rgb(192, 192, 192);"> Forgot Password? </a></div>
+            <br />
+            <input type="submit" value="Login" />
+            <div class="signup_link">Not a member? <a href="{{route('showRegister')}}">Register now.</a></div>
+        </form>
+    </div>
+    
 
 @endsection {{-- End content --}}
 

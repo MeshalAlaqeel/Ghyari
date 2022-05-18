@@ -1,5 +1,6 @@
 .cart-page{
     margin: 80px auto;
+    padding: 20px;
 
 }
 table{
@@ -18,17 +19,18 @@ th{
     color: #fff;
     background:#00CED1;
     font-weight: normal;
+    /* border-radius: 10px; */
     
 }
 td{
     padding: 10px 5px;
 
 }
-td input{
+/* td input{
     width: 40px;
     height: 30px;
     padding: 5px;
-}
+} */
 td a{
     color: red;
     font-size: 12px;
@@ -63,15 +65,15 @@ th:last-child{
 
 .btn-success {
     color: #fff;
-    background: #13bfa6 !important;
-    border-color: #35b9a6;
+    background: #00ced1 !important;
+    border-color: #00ced1;
     
 }
 
 .btn-success:hover {
     color: #fff;
-    background-color: #13bfa6;
-    border-color: #13bfa6;
+    background-color: #00ced1;
+    border-color: #00ced1;
     opacity: 0.7;
 }
 .btn {
@@ -90,4 +92,36 @@ th:last-child{
     line-height: 1.84615385;
     border-radius: 5px;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+} 
+
+.container54{
+    background-color: #fff;
+    border-radius: 10px;
+    width: 1100px;
+    margin-left: 80px;
+    box-shadow:10px 10px 15px rgba(0,0,0,0.30);
+
+}
+
+.container-message{  
+    background-color: #fff;
+    border-radius: 10px;
+    width: 500px;
+    margin-left: 430px;
+
+}
+
+.container12{
+    margin-top: 100px;
+}
+
+
+.red-Messages{
+    color: red; 
+    text-align: center;
+}
+
+.green-Messages{
+    color:green;
+    text-align: center;
 }

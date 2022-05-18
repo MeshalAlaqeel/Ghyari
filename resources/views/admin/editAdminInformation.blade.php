@@ -5,14 +5,14 @@
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/admin/adminEditInformation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 @endsection
 
 @section('content')
 
-    <div id="main">
+    <div class="container-message">
 
         @if ($errors->any())
             <ul>
@@ -28,6 +28,11 @@
         @if (session()->has('fail'))
             <div style="color: red">{{session()->get('fail')}}</div>
         @endif
+    </div>
+{{--     
+    <div id="main">
+
+        
 
         <form action="{{route('editInformation')}}" method="post" class="login-email">
             @csrf
@@ -59,6 +64,45 @@
 
     </div> {{-- end main --}}
     
+    <div class="container12">
+        <h2>Edit Information</h2>
+        <form action="{{route('editInformation')}}" method="post" class="login-email">
+            @csrf
+            <div class="row">
+                <div class="col-25">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="email" name="email" placeholder="Email.."  value={{$user->email}} required/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Username">Username</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="Username" name="username" placeholder="Username.."  value={{$user->username }} required/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="Phone">Phone Number</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="Phone" name="Phone" placeholder="Phone.." value={{$user->phone_number}} />
+                </div>
+            </div>
+
+            <div class="row">
+                <input type="Submit" value="Save" />
+            </div>
+        </form>
+    </div>
+
+@endsection  {{-- End content --}}
+
+@section('scripts')
     <script>
         
         function menu1() {
@@ -69,9 +113,4 @@
         }
         
     </script>
-
-@endsection  {{-- End content --}}
-
-@section('scripts')
-    
 @endsection

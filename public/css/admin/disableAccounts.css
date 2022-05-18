@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+
+/* body {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+} */
+
+h1 {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+
+
+/* --------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  body{
+    background-color: #f0f0f5;
+  }
+  
+  
+  
+  
+  /* -------------------Add Item----------------------------- */
+  
+  
+  
+  
+  /* * {
+    box-sizing: content-box;
+  } */
+  
+  
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #07a8e7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #07a8e7;
+  }
+  .container{
+    margin-left: 200px;
+  }
+  .container12 {
+    border: 10px;
+    width: 70%;
+    margin-right: 40px;
+    background-color: #fff;
+    padding: 50px;
+    margin: 50px;
+    margin-top: 10px;
+  }
+  
+  
+
+  .btn , .dlt_btn {
+    background-color: #192a56;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    width: 100%;
+    transition: box-shadow .3s ease-in-out,
+    transform .3s ease-in-out;
+}
+
+.btn:hover , .dlt_btn:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,.3);
+  transform: translateY(-2px);
+}
+
+.table{
+    width:75%;
+    margin-bottom:1rem;
+    color:#212529;
+}
+.table td,.table th{
+    padding:1.25rem 1.25rem 1.25rem 1.25rem;
+    vertical-align:top;
+    border-top:1px solid #e6e0de;
+}
+.red-Messages{
+  color: red; 
+  text-align: center;
+}
+
+.green-Messages{
+  color:green;
+  text-align: center;
+}
+.container-message{
+  background-color: #fff;
+  border-radius: 10px;
+  width: 500px;
+  margin-left: 230px;
+  padding-left: 100px;
+}

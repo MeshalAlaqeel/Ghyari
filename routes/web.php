@@ -9,6 +9,8 @@ use App\Http\Controllers\wish_itemController;
 use App\Http\Controllers\remindMe_itemController;
 use App\Http\Controllers\commentController;
 use App\Http\Controllers\rateController;
+use App\Http\Controllers\creditCardController;
+use App\Http\Controllers\CheckoutController;
 use App\Models\comment;
 
 /*
@@ -158,3 +160,33 @@ Route::post('/addRating' , [rateController::class, 'addRating'])->name('addRatin
 
 
 //-------------------------------End-Rate-Controller-------------------------------------//
+
+//--------------------------------credit-card-controller-------------------------------------//
+
+
+// GETs
+
+Route::get('/addCreditCard',[creditCardController::class, 'showAddCreditCard'])->name('showAddCreditCard');
+Route::get('/CreditCards',[creditCardController::class, 'showCreditCards'])->name('showCreditCards');
+
+// POSTs
+
+Route::post('/addCreditCard' , [creditCardController::class, 'addCreditCard'])->name('addCreditCard');
+Route::post('/deleteCreditCard' , [creditCardController::class, 'deleteCreditCard'])->name('deleteCreditCard');
+
+
+//-------------------------------End-credit-card-controller------------------------------------//
+
+//--------------------------------Check-out-controller-------------------------------------//
+
+
+// GETs
+
+Route::get('/checkout',[CheckoutController::class, 'checkout'])->name('checkout');
+
+// POSTs
+
+Route::post('/checkout' , [CheckoutController::class, 'afterpayment'])->name('checkout.credit-card');
+
+
+//-------------------------------End-Check-out-controller------------------------------------//

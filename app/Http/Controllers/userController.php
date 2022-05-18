@@ -56,6 +56,7 @@ class userController extends Controller
                 if (Hash::check($request->password, $user->password)) {
                     $request->session()->put('loginId',$user->id);
                     $request->session()->put('loginRole',$user->role);
+                    $request->session()->put('loginName',$user->username);
                     if($user->role==1){
                         return redirect('adminIndex');
                     }else{

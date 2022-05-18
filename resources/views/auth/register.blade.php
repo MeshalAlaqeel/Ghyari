@@ -10,11 +10,8 @@
 
 @section('content')
 
-
-    <div class="container">
-
+    <div class="message">
         @if ($errors->any())
-            
             <ul>
                 @foreach ($errors->all() as $error)
                     <li style="color: red">{{$error}}</li>
@@ -28,32 +25,42 @@
         @if (session()->has('fail'))
             <div style="color: red">{{session()->get('fail')}}</div>
         @endif
-        
-        <form action="{{route('register')}}" method="post" class="login-email">
-            @csrf
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
-            
-            <div class="input-group">
-                <input type="email" placeholder="Email" name="email" value="{{old('email')}}" required>
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="User Name" name="username" value="{{old('username')}}" required>
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Password" name="password"  required>
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Confirm Password" name="Confirm-password"  required>
-            </div>
-            <div class="input-group">
-                <button name="submit" class="btn">Register</button>
-            </div>
-            <p class="login-register-text">Have an account? <a href="{{route('showLogin')}}">Login Here</a>.</p>
-
-        </form>
-
     </div>
-    
+        <!-------------------Register------------->
+    <div class="center11">
+
+        <h1>Register</h1>
+        <form action="{{route('register')}}" method="post" >
+            @csrf
+
+            <div class="txt_field">
+                <input type="email" name="email" value="{{old('email')}}" required>
+                <span></span>
+                <label>Email</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="text" name="username" value="{{old('username')}}" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password"  required>
+                <span></span>
+                <label>Password</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="password" name="Confirm-password"  required>
+                <span></span>
+                <label>Confirm Password</label>
+            </div>
+            <br />
+            <input type="submit" value="Register" />
+            <div class="signup_link">Have an account? <a href="{{route('showLogin')}}">Login here</a>.</div>
+        </form>
+    </div>
+
 
 @endsection  {{-- End content --}}
 
