@@ -27,7 +27,7 @@ class cart_itemController extends Controller
                 $res = DB::table('cart_items')->insert([
                     'user_id' => session()->get('loginId'),
                     'item_id' => $request->item_id,
-                    'quantity'=> 1,
+                    'quantity'=> $request->quantity ?? 1,
                 ]);
 
                 if ($res) {

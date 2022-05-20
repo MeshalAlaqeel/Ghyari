@@ -5,7 +5,10 @@
 @endsection
 
 @section('style')
-    
+    <link rel="stylesheet" href="css/user/loggedin.css">
+    <style type="text/css">
+        body{ background-color: white; }
+    </style>
 @endsection
 
 @section('content')
