@@ -63,14 +63,14 @@ class userController extends Controller
                         return redirect('loggedin');
                     }
                 } else {
-                    return redirect()->back()->with('fail','password not matched');
+                    return redirect()->back()->with(['fail'=>'password not matched','email'=>$request->email]);
                 }
             } else {
                 return redirect()->back()->with('fail','Account not active');
             }
             
         } else {
-            return view('auth.login')->with(['fail'=>'Email not found','email'=>$request->email]);
+            return redirect()->back()->with(['fail'=>'Email not found','email'=>$request->email]);
         }
     }
 

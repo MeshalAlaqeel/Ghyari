@@ -33,48 +33,6 @@
 
     </div>
 
-
-    <div id="main">
-
-{{-- 
-        
-        <form action="{{route('addItem')}}" method="post" class="">
-            @csrf
-            <div class="container rounded bg-white mt-5">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="p-3 py-5">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
-                                    <h6>Back to home</h6>
-                                </div>
-                                <h6 class="text-right">Add Item</h6>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-6"><input type="text" class="form-control" name="name" placeholder="Name" value="" required></div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6"><input type="text" class="form-control" name="price" placeholder="Price" value="" required></div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6"><input type="text" class="form-control" name="category" placeholder="Category" value="" ></div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6"><input type="text" class="form-control" name="quantity" placeholder="Quantity" value="" ></div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6"><input type="file" class="form-control" name="image" placeholder="Image" value="" ></div>
-                            </div>
-                            <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit">Add Item</button></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form> --}}
-
-    </div> {{-- end main --}}
-
-
     <div class="container12">
         <h2>Add Item</h2>
         <form action="{{route('addItem')}}" method="post" class="">
@@ -84,7 +42,27 @@
                     <label for="name">Item Name</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="name" name="name" placeholder="Name.." />
+                    <input type="text" id="name" name="name" placeholder="Name.." required/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Company">Item Company</label>
+                </div>
+                <div class="col-75">
+                    <select id="Company" name="company_name" >
+                        <option value="ford">Ford</option>
+                        <option value="">----</option>
+                        <option value="">----</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="chassis_number">Chassis number</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="chassis_number" name="chassis_number" placeholder="chassis number.." required/>
                 </div>
             </div>
             <div class="row">
@@ -92,23 +70,7 @@
                     <label for="Price">Item Price</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="Price" name="price" placeholder="Price.." />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="Quantity">Item Quantity</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="Quantity" name="quantity" placeholder="Quantity.." />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="ChassisNumber">Item Chassis Number </label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="ChassisNumber" name="chassisNumber" placeholder="Chassis Number.." />
+                    <input type="text" id="Price" name="price" placeholder="Price.." required/>
                 </div>
             </div>
             <div class="row">
@@ -125,22 +87,18 @@
             </div>
             <div class="row">
                 <div class="col-25">
-                    <label for="Company">Item Company</label>
+                    <label for="Quantity">Item Quantity</label>
                 </div>
                 <div class="col-75">
-                    <select id="Company" name="Company">
-                        <option value="ford">Ford</option>
-                        <option value="">----</option>
-                        <option value="">----</option>
-                    </select>
+                    <input type="text" id="Quantity" name="quantity" placeholder="Quantity.." required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-25">
-                    <label for="ItemPho">Item Photo</label>
+                    <label for="ItemPho">Item image</label>
                 </div>
                 <div class="col-75">
-                    <input type="file" id="ItemPho" name="image" />
+                    <input type="file" id="ItemPho" name="image" required/>
                 </div>
             </div>
             <div class="row">
@@ -148,7 +106,7 @@
                     <label for="Description">Description</label>
                 </div>
                 <div class="col-75">
-                    <textarea id="Description" name="description" placeholder="Write Description.." style="height: 200px;"></textarea>
+                    <textarea id="Description" name="description" placeholder="Write Description.." style="height: 200px;" required></textarea>
                 </div>
             </div>
 

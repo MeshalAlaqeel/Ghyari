@@ -104,8 +104,8 @@ th:last-child{
 .container54{
     background-color: #fff;
     border-radius: 10px;
-    width: 1100px;
-    margin-left: 80px;
+    width: 700px;
+    margin-left: 280px;
     box-shadow:10px 10px 15px rgba(0,0,0,0.30);
 
 }
@@ -134,8 +134,4 @@ th:last-child{
 .green-Messages{
     color:green;
     text-align: center;
-}
-.add{
-    margin-left: 400px;
-    /* margin-bottom: ; */
 }

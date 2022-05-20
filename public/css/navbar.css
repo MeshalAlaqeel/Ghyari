@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap");
 ul{
     list-style: none;
 }
@@ -30,7 +31,8 @@ nav #centermenu{
 }
 nav #loginmenu{
     display: flex;
-    margin-right: -50px;
+    margin-right: -20px;
+    margin-left: 20px;
 }
 
 
@@ -125,6 +127,7 @@ background-color: #f9f9f9;
 min-width: 160px;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 z-index: 1;
+border-radius: 10px;
 }
 
 .dropdown-content a {

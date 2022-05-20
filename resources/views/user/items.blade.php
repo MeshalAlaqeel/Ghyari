@@ -14,63 +14,66 @@
 
 
 
-    <div class="row">
-
-        @if ($errors->any())
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li style="color: red">{{$error}}</li>
-                @endforeach
-            </ul>
-        @endif
-
-        @if (session()->has('success'))
-            <div style="color: green">{{session()->get('success')}}</div>
-        @endif
-        @if (session()->has('fail'))
-            <div style="color: red">{{session()->get('fail')}}</div>
-        @endif
-
-    </div>
+    
     
     <!------------------------------------------products--------------------------------------------->
 
     <div class="products">
+
+        <div class="message">
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li style="color: red">{{$error}}</li>
+                    @endforeach
+                </ul>
+            @endif
+
+            @if (session()->has('success'))
+                <div class="green-Messages">{{session()->get('success')}}</div>
+            @endif
+            @if (session()->has('fail'))
+                <div class="red-Messages">{{session()->get('fail')}}</div>
+            @endif
+        </div>
+
         <div class="containerr1212">
             <h1 class="lg-title">Ghyari You will find what you need!!</h1>
             
             <div class="product-items">
                 @foreach ($items as $item)
                     <div class="product">
-                        <div class="product-content">
-                            <div class="product-img">
-                                <img src="image/{{$item->image }}" alt="product image" />
+                        <a href="/itemPage/{{$item->id}}">
+                            <div class="product-content">
+                                <div class="product-img">
+                                    <img src="image/{{$item->image }}" alt="product image"/>
+                                </div>
+                                <div class="product-btns">
+                                    <form action="{{route('addToCart')}}" method="post" class="">
+                                        @csrf
+                                        <input type="hidden" name="item_id" value="{{$item->id }}">
+                                        <button type="submit" class="btn-cart">
+                                            add to cart
+                                            <span><i class="fas fa-shopping-cart"></i></span>
+                                        </button>
+                                    </form>
+                                    <form action="{{route('addToWish')}}" method="post" class="">
+                                        @csrf
+                                        <input type="hidden" name="item_id" value="{{$item->id }}">
+                                        <button type="submit" class="btn-buy">
+                                            wishlist
+                                            <span><i class="fa fa-heart"></i></span>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="product-btns">
-                                <form action="{{route('addToCart')}}" method="post" class="">
-                                    @csrf
-                                    <input type="hidden" name="item_id" value="{{$item->id }}">
-                                    <button type="submit" class="btn-cart">
-                                        add to cart
-                                        <span><i class="fas fa-shopping-cart"></i></span>
-                                    </button>
-                                </form>
-                                <form action="{{route('addToWish')}}" method="post" class="">
-                                    @csrf
-                                    <input type="hidden" name="item_id" value="{{$item->id }}">
-                                    <button type="submit" class="btn-buy">
-                                        wishlist
-                                        <span><i class="fa fa-heart"></i></span>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+                        </a>
 
                         <div class="product-info">
                             <div class="product-info-top">
                                 <h2 class="sm-title">Dodge</h2>
                                 <div class="rating">
-                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star" style="color: #ffc107"></i></span>
 
                                     <span>4.7(21)</span>
                                 </div>

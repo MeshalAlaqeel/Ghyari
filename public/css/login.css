@@ -36,8 +36,8 @@ body {
 
 /* this center for the register form*/
 .center11 {
-    position: absolute;
-    top: 55%;
+    position: relative;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 600px;
@@ -185,10 +185,24 @@ input[type="submit"]:hover {
 .message {
     margin-left : 467px ;
     padding-left: 40px;
-    margin-top : 50px ;
+    padding-right: 40px;
+    margin-top : 20px ;
     width: 600px;
     
     background: white;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+}
+.red-Messages{
+    color: red; 
+    text-align: center;
+}
+
+.green-Messages{
+    color:green;
+    text-align: center;
+}
+.error{
+    color: red; 
+    padding-left: 20px;
 }

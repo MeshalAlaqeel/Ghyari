@@ -20,10 +20,10 @@
         @endif
 
         @if (session()->has('success'))
-            <div style="color: green">{{session()->get('success')}}</div>
+            <div class="green-Messages">{{session()->get('success')}}</div>
         @endif
         @if (session()->has('fail'))
-            <div style="color: red">{{session()->get('fail')}}</div>
+            <div class="red-Messages">{{session()->get('fail')}}</div>
         @endif
     </div>
 
@@ -36,7 +36,7 @@
         <form action="{{route('login')}}" method="post">
             @csrf
             <div class="txt_field">
-                <input type="email" name="email" value="{{ $email ?? old ('email') }}" required>
+                <input type="email" name="email" value="{{ session()->get('email') ?? old ('email') }}" required>
                 <span></span>
                 <label>ُEmail</label>
             </div>

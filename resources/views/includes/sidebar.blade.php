@@ -10,10 +10,6 @@
             <span class="logo_name">Ghyari</span>
         </div>
         <ul class="nav-links">
-            {{-- <li class="search-box">
-                <i class="bx bx-search icon"></i>
-                <input type="text" placeholder="Search..." />
-            </li> --}}
             <li>
                 <a href="{{route('showAdminIndex')}}">
                     <i class="bx bx-grid-alt"></i>
@@ -34,22 +30,19 @@
                 <ul class="sub-menu">
                     <li><a class="link_name" href="{{route('showAdminItems')}}">All Items</a></li>
                     <li><a href="{{route('showAddItem')}}">Add Items</a></li>
-                    <li><a href="#">Remove Items</a></li>
                 </ul>
             </li>
             {{-- <li>
                 <div class="iocn-link">
-                    <a href="#">
-                        <i class="bx bx-book-alt"></i>
-                        <span class="link_name">Manage Orders</span>
+                    <a href="{{route('showAdminItems')}}">
+                        <i class="bx bx-collection"></i>
+                        <span class="link_name">All Items</span>
                     </a>
                     <i class="bx bxs-chevron-down arrow"></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Manage Orders</a></li>
-                    <li><a href="#">Order List</a></li>
-                    <li><a href="#">...</a></li>
-                    <li><a href="#">....</a></li>
+                    <li><a class="link_name" href="{{route('showAdminItems')}}">All Items</a></li>
+                    <li><a href="{{route('showAddItem')}}">Add Items</a></li>
                 </ul>
             </li> --}}
             <li>
@@ -61,39 +54,6 @@
                     <li><a class="link_name" href="{{route('showDisableAccount')}}">Users Accounts</a></li>
                 </ul>
             </li>
-            {{-- <li>
-                <a href="#">
-                    <i class="bx bx-line-chart"></i>
-                    <span class="link_name">C</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">C</a></li>
-                </ul>
-            </li> --}}
-            {{-- <li>
-                <div class="iocn-link">
-                    <a href="#">
-                        <i class="bx bx-plug"></i>
-                        <span class="link_name">Plugins</span>
-                    </a>
-                    <i class="bx bxs-chevron-down arrow"></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Plugins</a></li>
-                    <li><a href="#">UI Face</a></li>
-                    <li><a href="#">Pigments</a></li>
-                    <li><a href="#">Box Icons</a></li>
-                </ul>
-            </li> --}}
-            {{-- <li>
-                <a href="#">
-                    <i class="bx bx-compass"></i>
-                    <span class="link_name">Explore</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Explore</a></li>
-                </ul>
-            </li> --}}
             <li>
                 <a href="{{route('showEditAdminInformation')}}">
                     <i class="bx bx-history"></i>
@@ -103,15 +63,6 @@
                     <li><a class="link_name" href="{{route('showEditAdminInformation')}}">Profile</a></li>
                 </ul>
             </li>
-            {{-- <li>
-                <a href="#">
-                    <i class="bx bx-cog"></i>
-                    <span class="link_name">Settings</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Settings</a></li>
-                </ul>
-            </li> --}}
             <li>
                 <div class="profile-details">
                     <div class="profile-content">

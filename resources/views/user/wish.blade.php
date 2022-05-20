@@ -13,7 +13,7 @@
 @section('content')
 
     <div class="container12">
-        <div class="container-message">
+        <div class="message">
             @if ($errors->any())
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -21,18 +21,19 @@
                     @endforeach
                 </ul>
             @endif
+    
             @if (session()->has('success'))
-                <div style="color: green">{{session()->get('success')}}</div>
+                <div class="green-Messages">{{session()->get('success')}}</div>
             @endif
             @if (session()->has('fail'))
-                <div style="color: red">{{session()->get('fail')}}</div>
+                <div class="red-Messages">{{session()->get('fail')}}</div>
             @endif
         </div>
 
         <div class="container54">
             <div class="small-container cart-page">
                 <table>
-                    @if (count($items)>0)
+                    @if (count($items) > 0 )
                         
                         <tr>
                             <th>Product</th>
@@ -53,22 +54,22 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <form action="{{route('deleteFromRemindMe')}}" method="post" class="">
+                                    <form action="{{route('deleteFromWish')}}" method="post" class="">
                                         @csrf
                                         <input type="hidden" name="id" value="{{$item->id }}">
-                                        <div ><button class="btn btn-primary profile-button" type="submit">Remove</button></div>
+                                        <div ><button class="btn-primary profile-button" type="submit"><i href="" class="fa-regular fa-trash-can" style="color: red"></i></button></div>
                                     </form>
                                 </td>
                                 <td>${{$item->price}}</td>
                                 <td>
                                     @if ($item->quantity > 0)
-                                        <span class="in-stock-box">In Stock</span>
+                                        <span class="green-Messages">In Stock</span>
                                     @else
-                                        <span class="in-stock-box">Out of Stock</span>
+                                        <span class="red-Messages">Out of Stock</span>
                                     @endif
                                 </td>
                                 <td>
-                                    <form action="{{route('addToRemindMe')}}" method="post" class="">
+                                    <form action="{{route('addToCart')}}" method="post" class="">
                                         @csrf
                                         <input type="hidden" name="item_id" value="{{$item->id }}">
                                         <div ><button class="btn btn-primary profile-button" type="submit">Add to cart</button></div>

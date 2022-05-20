@@ -11,6 +11,7 @@ use App\Http\Controllers\commentController;
 use App\Http\Controllers\rateController;
 use App\Http\Controllers\creditCardController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\orderController;
 use App\Models\comment;
 
 /*
@@ -182,11 +183,30 @@ Route::post('/deleteCreditCard' , [creditCardController::class, 'deleteCreditCar
 
 // GETs
 
-Route::get('/checkout',[CheckoutController::class, 'checkout'])->name('checkout');
+Route::get('/checkout',[CheckoutController::class, 'showCheckout'])->name('showCheckout');
+Route::get('/done',[CheckoutController::class, 'showDone'])->name('showDone');
+
 
 // POSTs
 
 Route::post('/checkout' , [CheckoutController::class, 'afterpayment'])->name('checkout.credit-card');
-
+Route::post('/payMethod',[CheckoutController::class, 'payMethod'])->name('payMethod');
+Route::post('/pay',[CheckoutController::class, 'pay'])->name('pay');
 
 //-------------------------------End-Check-out-controller------------------------------------//
+
+//--------------------------------Order-controller-------------------------------------//
+
+
+// GETs
+
+Route::get('/orders',[orderController::class, 'showOrders'])->name('showOrders');
+Route::get('/orderPage/{id}',[orderController::class, 'showOrderPage'])->name('showOrderPage');
+
+
+// POSTs
+
+// Route::post('/' , [orderController::class, ''])->name('');
+
+
+//-------------------------------End-Order-controller------------------------------------//

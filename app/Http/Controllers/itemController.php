@@ -17,19 +17,25 @@ class itemController extends Controller
         
         $request->validate([
             'name'=>'required|unique:items',
+            'company_name'=>'required',
+            'chassis_number'=>'required',
             'price'=>'required|numeric|min:0',
             'category'=>['required'],
             'quantity'=>'required|integer|min:0',
             'image'=>'required',
+            'description'=>'required',
         ]);
 
         $item = new Item;
         $item->name = $request->name;
+        $item->company_name = $request->company_name;
+        $item->chassis_number = $request->chassis_number;
         $item->price = $request->price;
-        $item->category =$request->category;
-        $item->quantity =$request->quantity;
-        $item->image =$request->image;
-        $item->rate =0;
+        $item->category = $request->category;
+        $item->quantity = $request->quantity;
+        $item->image = $request->image;
+        $item->rate = 0;
+        $item->description = $request->description;
 
         $res = $item->save();
 
@@ -44,24 +50,32 @@ class itemController extends Controller
 
         $request->validate([
             'name'=>['required',Rule::unique('items')->ignore($request->itemId),] ,
+            'company_name'=>'required',
+            'chassis_number'=>'required',
             'price'=>'required|numeric|min:0',
             'category'=>['required'],
             'quantity'=>'required|integer|min:0',
             'image'=>'required',
+            'description'=>'required',
         ]);
 
         $item = DB::table('items')->where('id' , $request->itemId)->first();
-        if (strcasecmp($item->name, $request->name) == 0 && strcasecmp($item->price, $request->price) == 0 && strcasecmp($item->category, $request->category) == 0 
-            && strcasecmp($item->quantity, $request->quantity) == 0 && strcasecmp($item->image, $request->image) == 0 ) {
+        if (strcasecmp($item->name, $request->name) == 0 && strcasecmp($item->company_name, $request->company_name) == 0 && 
+            strcasecmp($item->chassis_number, $request->chassis_number) == 0 && strcasecmp($item->price, $request->price) == 0 && 
+            strcasecmp($item->category, $request->category) == 0 && strcasecmp($item->quantity, $request->quantity) == 0 && 
+            strcasecmp($item->image, $request->image) == 0 && strcasecmp($item->description, $request->description) == 0) {
             return redirect()->back()->with('fail','Information is the same!!');
         }
         
         DB::table('items')->where ('id', $request->itemId)->update([
             'name'=>($request->name),
+            'company_name'=>($request->company_name),
+            'chassis_number'=>($request->chassis_number),
             'price'=>($request->price),
             'category'=>($request->category),
             'quantity'=>($request->quantity),
-            'image'=>($request->image)
+            'image'=>($request->image),
+            'description'=>($request->description)
         ]);
 
         return redirect()->back()->with('success','Information updated successfully');

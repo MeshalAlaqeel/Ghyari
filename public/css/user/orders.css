@@ -1,10 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap");
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
+
 .cart-page{
     margin: 80px auto;
     padding: 20px;
@@ -110,22 +104,19 @@ th:last-child{
 
 }
 
+.container-message{  
+    background-color: #fff;
+    border-radius: 10px;
+    width: 500px;
+    margin-left: 430px;
+
+}
+
 .container12{
     margin-top: 100px;
 }
 
 
-.message{ 
-    margin-left : 400px ;
-    /* padding-left: 40px;
-    padding-right: 40px; */
-    margin-top : 20px ;
-    width: 400px;
-    
-    background: white;
-    border-radius: 10px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
-}
 .red-Messages{
     color: red; 
     text-align: center;
@@ -134,8 +125,4 @@ th:last-child{
 .green-Messages{
     color:green;
     text-align: center;
-}
-.add{
-    margin-left: 400px;
-    /* margin-bottom: ; */
 }

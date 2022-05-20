@@ -105,7 +105,7 @@
                 </div>
                 <div class="inputBox">
                     <span>cvv</span>
-                    <input type="text" name="cvc" maxlength="4" class="cvv-input">
+                    <input type="text" name="cvc" maxlength="3" class="cvv-input">
                 </div>
             </div>
             <input type="submit" value="submit" class="submit-btn">

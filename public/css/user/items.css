@@ -297,3 +297,23 @@ img{
     color: #fff;
 }
 
+.message{ 
+    margin-left : 400px ;
+    /* padding-left: 40px;
+    padding-right: 40px; */
+    margin-top : 20px ;
+    width: 400px;
+    
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+}
+.red-Messages{
+    color: red; 
+    text-align: center;
+}
+
+.green-Messages{
+    color:green;
+    text-align: center;
+}
