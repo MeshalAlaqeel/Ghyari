@@ -57,14 +57,14 @@
                     </select>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-25">
                     <label for="chassis_number">Chassis number</label>
                 </div>
                 <div class="col-75">
                     <input type="text" id="chassis_number" name="chassis_number" placeholder="chassis number.." value={{$item->chassis_number}} required/>
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="col-25">
                     <label for="Price">Item Price</label>

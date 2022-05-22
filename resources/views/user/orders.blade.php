@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="container12">
-        <div class="container-message">
+        <div class="message">
             @if ($errors->any())
                 <ul>
                     @foreach ($errors->all() as $error)

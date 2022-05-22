@@ -122,6 +122,30 @@ class itemController extends Controller
             return redirect('login');
         }
     }
+    public function returnItem (Request $request) {
+        if (Session::has('loginId') ) {
+            if (session()->get('loginRole')==2) {
+
+                $exist = DB::table('order_items')->where(['order_id'=>$request->id])->first();
+                DB::table('returned_items')->insert([
+                    'order_id'=>$exist->order_id,
+                    'item_id'=>$exist->item_id,
+                    'quantity'=>$exist->quantity,
+                ]);
+
+                DB::table('order_items')->where([
+                    'order_id'=>$request->id,
+                    'item_id'=>$exist->item_id,
+                ])->delete();
+                
+                return redirect('orders')->with(['success'=>'Item returned successfully Shipping company will contact you']);
+            }else {
+                return redirect('adminIndex');
+            }
+        }else {
+            return redirect('login');
+        }
+    }
 
 
 

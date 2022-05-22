@@ -55,7 +55,7 @@
     
 
     <div class="footer">
-        <div class="container">
+        <div class="containerfooter">
             <div class="row">
                 <div class="footer-col-1">
                     <h3>Our Number</h3>

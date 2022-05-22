@@ -219,10 +219,29 @@ class userController extends Controller
             ]);
         }
         if ($address) {
-                return redirect()->back()->with('success','Address Saved successfully');
-            }else {
-                return redirect()->back()->with('fail','somehting worng');
-            }
+            return redirect()->back()->with('success','Address Saved successfully');
+        }else {
+            return redirect()->back()->with('fail','somehting worng');
+        }
+    }
+
+    public function notification (Request $request) {
+
+        $request->validate([
+            'message'=>'required',
+        ]);
+
+        $users = DB::table('users')->where('role' , 2)->pluck('email')->all();
+        $body = $request->message;
+
+        foreach ($users as $user) {
+            Mail ::send('auth.email',['body'=>$body], function($message) use ($user) {
+                $message->from('tt4174117@gmail.com','Ghyari');
+                $message->to($user,'You')
+                        ->subject('Notification');
+            });
+        }
+        return redirect('adminOrders')->with('success','Notification sent successfully');
     }
 
 
@@ -252,8 +271,11 @@ class userController extends Controller
     public function showLoggedin () {
         if (Session::has('loginId') ) {
             if (session()->get('loginRole')==2) {
-                $items = DB::table('items')->get();
-                return view('user.loggedin')->with(['items' => $items]);
+                $Featured = DB::table('items')->take(4)->get();
+                $Latest = DB::table('items')->orderBy('id', 'desc')->take(4)->get();
+                $HighestRated = DB::table('items')->orderBy('rate', 'desc')->first();
+
+                return view('user.loggedin')->with(['Featured' => $Featured , 'Latest' => $Latest ,'HighestRated' => $HighestRated ]);
             }else {
                 return redirect('adminIndex');
             }
@@ -264,7 +286,12 @@ class userController extends Controller
     public function showAdminIndex () {
         if (Session::has('loginId') ) {
             if (session()->get('loginRole')==1) {
-                return view('admin.adminIndex');
+
+                $users = DB::table('users')->where('role',2)->count();
+                $items = DB::table('items')->count();
+                $orders = DB::table('orders')->count();
+
+                return view('admin.adminIndex')->with(['users' => $users , 'items' => $items ,'orders' => $orders ]);
             }else {
                 return redirect('loggedin');
             }
@@ -308,6 +335,13 @@ class userController extends Controller
         if (Session::has('loginId') && session()->get('loginRole')==1) {
             $users = DB::table('users')->where('role','2')->orderBy('active', 'asc')->get();
             return view('admin.disableAccount')->with(['users' => $users]);
+        }else {
+            return redirect('login');
+        }
+    }
+    public function showNotification () {
+        if (Session::has('loginId') && session()->get('loginRole')==1) {
+            return view('admin.notification');
         }else {
             return redirect('login');
         }

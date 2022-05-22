@@ -17,6 +17,12 @@
     padding: 50px 0;
 }
 
+.bcart{
+    bottom: 79px; 
+    left: 190px;
+    position: relative;
+}
+
 .col-2 h1{
     font-size: 50px;
     line-height: 60px;
@@ -32,12 +38,41 @@
     border-radius: 30px;
     transition: background 0.5;
 }
+
+.acrat-rate .btn{
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    
+    
+}
+
 .acart{
     font-size: 18px;
+    margin: auto;
+    
+
+}
+
+.acart-rate{
+    font-size: 18px;
+    margin: auto;
+    margin-top: -60px;
+    width: 170px;
+    height: 70px;
+    
+    
 }
 
 .btn:hover{
-    background: #14a0a0;
+    
+    cursor: pointer;
+    color: #fff;
 }
 
 .categories{
@@ -49,24 +84,52 @@
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+    background-color: white;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.30);
+    border-radius: 20px;
 }
 
 /* test ddddddddddddddddddddddddddddddddd */
 .outer-container{ 
-    margin-top: 100px;
+    margin-top: 25px;
  }
+
 .inner-container{
     padding-top: 10px;
     width: 700px;
     margin: auto;
     height: auto;
     border-radius: 10px;
-    background-color: white;
+    
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
 }
 
+.inner-container-rate{
+    padding-top: 10px;
+    width: 500px;
+    margin: auto;
+    height: auto;
+    text-align: center;
+    margin-left: 420px;
+    margin-bottom: 110px;
+    
+
+}
+
+.container-r{
+    
+    margin-left: 10px;
+    width: 1000px;
+    border-top: solid 1px black; 
+    border-bottom: solid 1px black; 
+}
+
+.container-c{
+margin-top: 25px;
+
+}
 
 .comment{
     border: 1px solid black;
@@ -74,6 +137,8 @@
     height: auto;
     padding-left: 10px;
     padding-bottom: 5px;
+    
+    margin-bottom:  10px;
 }
 
 
@@ -141,11 +206,20 @@ body{
     max-width: 1000px;
     max-height: 700px;
     margin: 0 auto;
-    background-color: #ffffff;
     display:inline-block;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.30);
-    border-radius: 20px;
+    background-color: white;
+    /* margin-top: -250px; */
+    margin-bottom: -100px;
 }
+
+.card-wrapper2{
+    max-width: 1000px;
+    max-height: 700px;
+    margin: 0 auto;
+    display:inline-block;
+    
+}
+
 img{
     width: 100%;
     display: block;
@@ -153,15 +227,15 @@ img{
 
 
 .products-details{
-    padding: 3.2rem 0;
-    padding-top: 8%;
+    padding: 51.2px 0;
+    padding-top: 5%;
 }
 
 
 .products-details .text-light{
     text-align: center;
     width: 70%;
-    margin: 0.9rem auto;
+    margin: 14.4px auto;
 }
 
 
@@ -191,15 +265,15 @@ img{
     opacity: 0.8;
 }
 .product-content{
-    padding: 2rem 1rem;
+    padding: 32px 16px;
 }
 .product-title{
-    font-size: 3rem;
+    font-size: 48px;
     text-transform: capitalize;
     font-weight: 700;
     position: relative;
     color: #12263a;
-    margin: 1rem 0;
+    margin: 16px 0;
 }
 .product-title::after{
     content: "";
@@ -250,16 +324,16 @@ img{
 .product-detail h2{
     text-transform: capitalize;
     color: #12263a;
-    padding-bottom: 0.6rem;
+    padding-bottom: 9.6px;
 }
 .product-detail p{
-    font-size: 0.9rem;
-    padding: 0.3rem;
+    font-size: 14.4px;
+    padding: 4.8px;
     opacity: 0.8;
 }
 .product-detail ul{
-    margin: 1rem 0;
-    font-size: 0.9rem;
+    margin: 16px 0;
+    font-size: 14.4px;
 }
 .product-detail ul li{
     margin: 0;
@@ -340,7 +414,7 @@ img{
         justify-content: center;
         align-items: center;
     }
-    .product-imgs{
+    .product-outer{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -354,10 +428,35 @@ img{
 
 /* Rating */
 
+.cr-block{
+    text-transform: capitalize;
+    position: relative;
+    margin: 10px 0;
+    text-align: center;
+    line-height: 60px;
+    color: #555;
+}
+
+.cr-block-rate{
+    text-transform: capitalize;
+    position: relative;
+    
+    margin-top: 30px;
+   
+    margin-left: 45px;
+    text-align: top;
+    line-height: 60px;
+    color: #12263a;
+    padding-bottom: 9.6px;
+    margin-bottom: -50px;
+
+}
+
 .rating { 
     border: none;
     float: left;
   }
+
   
   .rating > input { display: none; } 
   .rating > label:before { 
@@ -400,11 +499,27 @@ img{
 
 
 
-     
+.message{ 
+    margin-left : 500px ;
+    /* padding-left: 40px;
+    padding-right: 40px; */
+    margin-top : 100px ;
+    margin-bottom: -50px;
+    width: 400px;
 
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+}
+.red-Messages{
+    color: red; 
+    text-align: center;
+}
 
-    /* Chat */
-    
-
-
-   
+.green-Messages{
+    color:green;
+    text-align: center;
+}
+/* .container {
+    margin-top: 100px;
+} */

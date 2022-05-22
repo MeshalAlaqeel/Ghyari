@@ -10,19 +10,22 @@
 
 @section('content')
 
-    @if ($errors->any())
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li style="color: red">{{$error}}</li>
-            @endforeach
-        </ul>
-    @endif
-    @if (session()->has('success'))
-        <div style="color: green">{{session()->get('success')}}</div>
-    @endif
-    @if (session()->has('fail'))
-        <div style="color: red">{{session()->get('fail')}}</div>
-    @endif
+    <div class="message">
+        @if ($errors->any())
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li style="color: red">{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
+
+        @if (session()->has('success'))
+            <div class="green-Messages">{{session()->get('success')}}</div>
+        @endif
+        @if (session()->has('fail'))
+            <div class="red-Messages">{{session()->get('fail')}}</div>
+        @endif
+    </div>
     
     <div class="container99">
 

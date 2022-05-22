@@ -1,0 +1,117 @@
+/* Google Fonts Import Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  background-color: #f0f0f5;
+}
+
+
+
+/* -------------------Add Item----------------------------- */
+
+
+
+
+/* * {
+  box-sizing: content-box;
+} */
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #07a8e7;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #07a8e7;
+}
+
+
+
+.col-25 {
+  float: left;
+  width: 30%;
+  margin-top: 7px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 7px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.con_info1 {
+    background-color: rgb(46, 226, 136);
+    margin-left: 350px;
+    margin-top: 100px;
+  border-radius: 10px;
+  float: left;
+  width: 270px;
+  height: 200px;
+  text-align: left;
+
+}
+.con_info2 {
+    background-color: rgb(99, 120, 241);
+    margin-left: 100px;
+    margin-top: 100px;
+  border-radius: 10px;
+  float: left;
+  width: 270px;
+  height: 200px;
+  text-align: left;
+
+}
+.con_info3 {
+    background-color: rgb(28, 228, 218);
+    margin-left: 100px;
+    margin-top: 100px;
+  border-radius: 10px ;
+  float: left;
+  width: 270px;
+  height: 200px;
+text-align: left;
+}
+.con_info4 {
+    background-color: rgb(243, 169, 9);
+    margin-left: 100px;
+    margin-top: 100px;
+  border-radius: 10px ;
+  float: left;
+  width: 270px;
+  height: 200px;
+text-align: left;
+}
+h1{
+  font-size: 35px;
+}
+

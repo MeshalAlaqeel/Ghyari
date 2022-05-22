@@ -62,7 +62,7 @@
                             </tr>
                         @endforeach
                     @else
-                        <h3 style="margin-left: 400px">No items in Remind-me list.</h3>
+                        <h3 style="margin-left: 200px">No items in Remind-me list.</h3>
                     @endif
                 </table>     
             </div>

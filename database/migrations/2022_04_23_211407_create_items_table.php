@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('company_name');
-            $table->string('chassis_number');
+            // $table->string('chassis_number');
             $table->double('price', 7, 2);
             $table->string('category');
             $table->integer('quantity');

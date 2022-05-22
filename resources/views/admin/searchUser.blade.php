@@ -5,18 +5,15 @@
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="css/admin/item.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/admin/disableAccounts.css" />
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" /> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 @endsection
 
 @section('content')
 
-    <div id="main">
-
-
-
+    <div class="container-message">
         @if ($errors->any())
             <ul>
                 @foreach ($errors->all() as $error)
@@ -31,68 +28,68 @@
         @if (!empty($fail))
             <div style="color: red">{{$fail}}</div>
         @endif
+    </div>
+    <br />
 
+    <div class="container12">
+        <h2>Accounts</h2>
+        <br />
 
-        <div style="width:700px; margin:50 auto; margin-left: 300px;">
-            <div class="search">
-                <form action="{{route('searchUser')}}" method="post">
-                    @csrf
-                    <input type="text" placeholder="Search" name="search"/>
-                </form>
-                <i class="fa fa-search icons"></i>
+        <form action="{{route('searchUser')}}" method="post">
+            @csrf
+            <div style="width: 50%; float: left;">
+                <input type="text" placeholder="Search.." name="search" />
             </div>
-            <div class="items">
-                @if (!empty($users))
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>USER NAME</td>
-                                <td>USER EMAIL</td>
-                                <td>STATUS</td>
-                                <td>Activation</td>
-                            </tr>
-                            @foreach ($users as $user)
-                                @if ($user->active == 1)
-                                    <tr>
-                                        <td>{{$user->username }}<br/></td>
-                                        <td>{{$user->email }}<br/></td>
-                                        <td>{{$user->active }}<br/></td>
-                                        <td>
-                                            <form action="{{route('disableAccount')}}" method="POST" >
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{$user->id }}">
-                                                <input type="hidden" name="users" value="{{$users }}">
-                                                <input type="submit" value="Disable" name="disableAccount" class="dlt_btn" style="width:100px;">
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @else
-                                    <tr>
-                                        <td>{{$user->username }}<br/></td>
-                                        <td>{{$user->email }}<br/></td>
-                                        <td>{{$user->active }}<br/></td>
-                                        <td>
-                                            <form action="{{route('enableAccount')}}" method="POST" >
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{$user->id }}">
-                                                <input type="submit" value="Enable" name="disableAccount" class="dlt_btn" style="width:100px;">
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endif
-                                
-                            @endforeach
+        </form>
+        <br/>
+        <div class="row">
+            @if (!empty($users))
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>USER NAME</td>
+                            <td>USER EMAIL</td>
+                            <td>STATUS</td>
+                            <td>Activation</td>
+                        </tr>
+                        @foreach ($users as $user)
+                            @if ($user->active == 1)
+                                <tr>
+                                    <td>{{$user->username }}<br/></td>
+                                    <td>{{$user->email }}<br/></td>
+                                    <td>{{$user->active }}<br/></td>
+                                    <td>
+                                        <form action="{{route('disableAccount')}}" method="POST" >
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$user->id }}">
+                                            <input type="submit" value="Disable" name="disableAccount" class="dlt_btn" style="width:100px;">
+                                        </form>
+                                    </td>
+                                </tr>
+                            @else
+                                <tr>
+                                    <td>{{$user->username }}<br/></td>
+                                    <td>{{$user->email }}<br/></td>
+                                    <td>{{$user->active }}<br/></td>
+                                    <td>
+                                        <form action="{{route('enableAccount')}}" method="POST" >
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$user->id }}">
+                                            <input type="submit" value="Enable" name="disableAccount" class="dlt_btn" style="width:100px;">
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endif
                             
-                        </tbody>
-                    </table>
-                @else
-                    <h3> {{ "NO Users" }} </h3>
-                @endif
-            </div>
+                        @endforeach
+                        
+                    </tbody>
+                </table>
+            @else
+                <h3> {{ "NO Users" }} </h3>
+            @endif
         </div>
-
-    </div> {{-- end main --}}
-    
+    </div>
 
 @endsection  {{-- End content --}}
 

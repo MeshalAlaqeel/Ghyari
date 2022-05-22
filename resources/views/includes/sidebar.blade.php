@@ -1,6 +1,7 @@
 @section('sidebar-style')
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel='stylesheet' href="{{asset('https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css')}}">
+    <script src="{{asset('https://kit.fontawesome.com/a076d05399.js')}}" crossorigin="anonymous"></script>
 @show
 @section('sidebar')
 
@@ -32,19 +33,19 @@
                     <li><a href="{{route('showAddItem')}}">Add Items</a></li>
                 </ul>
             </li>
-            {{-- <li>
+            <li>
                 <div class="iocn-link">
-                    <a href="{{route('showAdminItems')}}">
-                        <i class="bx bx-collection"></i>
-                        <span class="link_name">All Items</span>
+                    <a href="{{route('showAdminOrders')}}">
+                        <i class="bx bx-book-alt"></i>
+                        <span class="link_name">All Orders</span>
                     </a>
                     <i class="bx bxs-chevron-down arrow"></i>
                 </div>
                 <ul class="sub-menu">
-                    <li><a class="link_name" href="{{route('showAdminItems')}}">All Items</a></li>
-                    <li><a href="{{route('showAddItem')}}">Add Items</a></li>
+                    <li><a class="link_name" href="{{route('showAdminOrders')}}">All Orders</a></li>
+                    {{-- <li><a href="{{route('showAddItem')}}">Sent Orders</a></li> --}}
                 </ul>
-            </li> --}}
+            </li>
             <li>
                 <a href="{{route('showDisableAccount')}}">
                     <i class="bx bx-pie-chart-alt-2"></i>
@@ -52,6 +53,15 @@
                 </a>
                 <ul class="sub-menu blank">
                     <li><a class="link_name" href="{{route('showDisableAccount')}}">Users Accounts</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{route('showNotification')}}">
+                    <i class='bx bx-compass' ></i>
+                    <span class="link_name">Send Notification</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="{{route('showNotification')}}">Send Notification</a></li>
                 </ul>
             </li>
             <li>

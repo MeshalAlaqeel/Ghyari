@@ -71,7 +71,7 @@ class cart_itemController extends Controller
             return redirect()->back()->with('fail','quantity is the same!!');
         }
         
-        if ( ($items->quantity) > ($request->quantity) ) {
+        if ( ($items->quantity) >= ($request->quantity) ) {
             DB::table('cart_items')->where([
                 'user_id' => session()->get('loginId'),
                 'item_id' => $request->id,

@@ -22,7 +22,7 @@
                 </div>
                 <div class="top-right">
                     <br>
-                    <div class="date">Date: 23.08.2022</div>
+                    <div class="date">Date: {{$order->created_at}}</div>
                     <div class="date">Status: {{$order->status}}</div>
                 </div>
             </div>
@@ -34,6 +34,7 @@
                         <th class="quantity">Unit Price</th>
                         <th class="quantity">Quantity</th>
                         <th class="cost">Cost</th>
+                        <th class="cost">Return Item</th>
                     </thead>
                     <tbody>
                         @foreach ($items as $item)
@@ -49,6 +50,15 @@
                                         echo ($item->price)*($item->quantity);
                                         $total += ($item->price)*($item->quantity);
                                     @endphp
+                                </td>
+                                <td>
+                                    @if ($return_date < 14)
+                                        <form action="{{route('returnItem')}}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$order->id}}">
+                                            <div ><button class="btn btn-primary profile-button" type="submit">Return Item</button></div>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -67,6 +77,37 @@
                     <br />
                     <tfoot >
                         <tr class="total">
+                            <td class="name" colspan="3">Subtotal</td>
+                            <td colspan="4" class="number">
+                                $@php
+                                    echo ($total);
+                                @endphp
+                            </td>
+                        </tr>
+                    </tfoot>
+                    <tfoot >
+                        <tr class="total">
+                            <td class="name" colspan="3">VAT</td>
+                            <td colspan="4" class="number">
+                                $@php
+                                    $vat=($total)*(0.15);
+                                    echo ($vat);
+                                @endphp
+                            </td>
+                        </tr>
+                    </tfoot>
+                    <tfoot >
+                        <tr class="total">
+                            <td class="name" colspan="3">Total</td>
+                            <td colspan="4" class="number">
+                                $@php
+                                    echo ($total)+($vat);
+                                @endphp
+                            </td>
+                        </tr>
+                    </tfoot>
+                    {{-- <tfoot >
+                        <tr class="total">
                             <td class="name" colspan="3">Total + VAT</td>
                             <td colspan="4" class="number">
                                 @php
@@ -76,7 +117,7 @@
                                 @endphp
                             </td>
                         </tr>
-                    </tfoot>
+                    </tfoot> --}}
                     <br/>
                     <tfoot>
                         <tr class="total">

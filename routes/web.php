@@ -29,6 +29,7 @@ use App\Models\comment;
 
 // GETs
 
+// Route::get('/',[userController::class, 'showRegister'])->name('Home');
 Route::get('/register',[userController::class, 'showRegister'])->name('showRegister');
 Route::get('/login',[userController::class, 'showLogin'])->name('showLogin');
 Route::get('/loggedin',[userController::class, 'showLoggedin'])->name('showLoggedin');
@@ -39,6 +40,7 @@ Route::get('/resetPassword/{token}',[userController::class, 'showResetPassword']
 Route::get('/editInformation',[userController::class, 'showEditInformation'])->name('showEditInformation');
 Route::get('/editAdminInformation',[userController::class, 'showEditAdminInformation'])->name('showEditAdminInformation');
 Route::get('/disableAccount',[userController::class, 'showDisableAccount'])->name('showDisableAccount');
+Route::get('/notification',[userController::class, 'showNotification'])->name('showNotification');
 
 
 
@@ -54,6 +56,8 @@ Route::post('/disableAccount',[userController::class, 'disableAccount'])->name('
 Route::post('/enableAccount',[userController::class, 'enableAccount'])->name('enableAccount');
 Route::post('/deleteAccount',[userController::class, 'deleteAccount'])->name('deleteAccount');
 Route::post('/searchUser' , [userController::class, 'searchUser'])->name('searchUser');//admin User
+Route::post('/notification',[userController::class, 'notification'])->name('notification');
+
 
 //-------------------------------End-User-Controller-------------------------------------//
 
@@ -78,6 +82,7 @@ Route::post('/editItem' , [itemController::class, 'editItem'])->name('editItem')
 Route::post('/deleteItem' , [itemController::class, 'deleteItem'])->name('deleteItem');
 Route::post('/search' , [itemController::class, 'search'])->name('search');//search User
 Route::post('/searchItem' , [itemController::class, 'searchItem'])->name('searchItem');//admin User
+Route::post('/returnItem' , [itemController::class, 'returnItem'])->name('returnItem');
 
 
 
@@ -201,12 +206,14 @@ Route::post('/pay',[CheckoutController::class, 'pay'])->name('pay');
 // GETs
 
 Route::get('/orders',[orderController::class, 'showOrders'])->name('showOrders');
+Route::get('/adminOrders',[orderController::class, 'showAdminOrders'])->name('showAdminOrders');
 Route::get('/orderPage/{id}',[orderController::class, 'showOrderPage'])->name('showOrderPage');
 
 
 // POSTs
 
-// Route::post('/' , [orderController::class, ''])->name('');
+Route::post('/changeStatus' , [orderController::class, 'changeStatus'])->name('changeStatus');
+Route::post('/searchOrder' , [orderController::class, 'searchOrder'])->name('searchOrder');
 
 
 //-------------------------------End-Order-controller------------------------------------//

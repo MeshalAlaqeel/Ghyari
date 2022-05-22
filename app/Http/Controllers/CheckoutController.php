@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 
 class CheckoutController extends Controller
@@ -45,15 +46,14 @@ class CheckoutController extends Controller
             'status' => 'Sent',
         ]);
         $order = DB::table('orders')->max('id');
-        foreach($items as $item){
 
+        foreach($items as $item){
             DB::table('order_items')->insert([
                 'order_id' => $order,
                 'item_id' => $item->item_id,
                 'quantity'=> $item->quantity,
             ]);
         }
-        
         DB::table('cart_items')->where([
             'user_id' => session()->get('loginId'),
         ])->delete();
@@ -71,7 +71,9 @@ class CheckoutController extends Controller
                             ->get();
                 
                 $address = DB::table('address')->where('user_id', session()->get('loginId'))->first();
-
+                if (empty($address)) {
+                    return redirect()->back()->with('fail','should have address to complete checkout');
+                }
                 $creditCards = DB::table('credit_cards')->where([
                             'user_id'=>session()->get('loginId'),
                             ])->get();
