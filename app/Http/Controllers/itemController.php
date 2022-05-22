@@ -93,7 +93,10 @@ class itemController extends Controller
     public function search (Request $request) { // user search
         if (Session::has('loginId') ) {
             if (session()->get('loginRole')==2) {
-                $items = DB::table('items')->where("name", "LIKE", "%".$request->search."%")->get();
+                $items = DB::table('items')->where("name", "LIKE", "%".$request->search."%")
+                                            ->orWhere("company_name", "LIKE", "%".$request->search."%")
+                                            ->orWhere("category", "LIKE", "%".$request->search."%")
+                                            ->get();
                 
                 if($items->count() > 0) 
                     return view('user.search')->with(['success'=>'Your search about "'.$request->search.'"' ,'items'=>$items]);
