@@ -18,7 +18,6 @@ class itemController extends Controller
         $request->validate([
             'name'=>'required|unique:items',
             'company_name'=>'required',
-            'chassis_number'=>'required',
             'price'=>'required|numeric|min:0',
             'category'=>['required'],
             'quantity'=>'required|integer|min:0',
@@ -29,7 +28,6 @@ class itemController extends Controller
         $item = new Item;
         $item->name = $request->name;
         $item->company_name = $request->company_name;
-        $item->chassis_number = $request->chassis_number;
         $item->price = $request->price;
         $item->category = $request->category;
         $item->quantity = $request->quantity;
@@ -51,7 +49,6 @@ class itemController extends Controller
         $request->validate([
             'name'=>['required',Rule::unique('items')->ignore($request->itemId),] ,
             'company_name'=>'required',
-            'chassis_number'=>'required',
             'price'=>'required|numeric|min:0',
             'category'=>['required'],
             'quantity'=>'required|integer|min:0',
@@ -61,7 +58,7 @@ class itemController extends Controller
 
         $item = DB::table('items')->where('id' , $request->itemId)->first();
         if (strcasecmp($item->name, $request->name) == 0 && strcasecmp($item->company_name, $request->company_name) == 0 && 
-            strcasecmp($item->chassis_number, $request->chassis_number) == 0 && strcasecmp($item->price, $request->price) == 0 && 
+            strcasecmp($item->price, $request->price) == 0 && 
             strcasecmp($item->category, $request->category) == 0 && strcasecmp($item->quantity, $request->quantity) == 0 && 
             strcasecmp($item->image, $request->image) == 0 && strcasecmp($item->description, $request->description) == 0) {
             return redirect()->back()->with('fail','Information is the same!!');
@@ -70,7 +67,6 @@ class itemController extends Controller
         DB::table('items')->where ('id', $request->itemId)->update([
             'name'=>($request->name),
             'company_name'=>($request->company_name),
-            'chassis_number'=>($request->chassis_number),
             'price'=>($request->price),
             'category'=>($request->category),
             'quantity'=>($request->quantity),
@@ -87,17 +83,16 @@ class itemController extends Controller
             'id' => $request->id 
         ])->delete();
 
-        return redirect('items')->with('success','Item Deleted successfully');
+        return redirect('adminItems')->with('success','Item Deleted successfully');
 
     }
     public function search (Request $request) { // user search
+        $items = DB::table('items')->where("name", "LIKE", "%".$request->search."%")
+                                        ->orWhere("company_name", "LIKE", "%".$request->search."%")
+                                        ->orWhere("category", "LIKE", "%".$request->search."%")
+                                        ->get();
         if (Session::has('loginId') ) {
             if (session()->get('loginRole')==2) {
-                $items = DB::table('items')->where("name", "LIKE", "%".$request->search."%")
-                                            ->orWhere("company_name", "LIKE", "%".$request->search."%")
-                                            ->orWhere("category", "LIKE", "%".$request->search."%")
-                                            ->get();
-                
                 if($items->count() > 0) 
                     return view('user.search')->with(['success'=>'Your search about "'.$request->search.'"' ,'items'=>$items]);
                 else
@@ -106,7 +101,10 @@ class itemController extends Controller
                 return redirect('adminIndex');
             }
         }else {
-            return redirect('login');
+            if($items->count() > 0) 
+                    return view('user.searchs')->with(['success'=>'Your search about "'.$request->search.'"' ,'items'=>$items]);
+                else
+                    return view('user.searchs')->with(['fail'=>'No item found about your search! "' .$request->search.'"','items'=>$items]);
         }
     }
     public function searchItem (Request $request) { // admin search
@@ -199,15 +197,15 @@ class itemController extends Controller
         }
     }
     public function showItems () {
+        $items = DB::table('items')->get();
         if (Session::has('loginId') ) {
             if (session()->get('loginRole')==2) {
-                $items = DB::table('items')->get();
                 return view('user.items')->with(['items' => $items]);
             }else {
                 return redirect('adminIndex');
             }
         }else {
-            return redirect('login');
+            return view('user.itemss')->with(['items' => $items]);
         }
     }
     public function showItemPage ($id) {
@@ -218,7 +216,10 @@ class itemController extends Controller
                     'user_id'=>session()->get('loginId'),
                     'item_id'=>$id,
                 ])->first();
-                $comments = DB::table('comments')->where([ 'item_id' => $id ])->orderBy('created_at', 'asc')->get();
+                $comments = DB::table('comments')->where([ 'item_id' => $id ])
+                                ->join('users', 'comments.user_id', '=', 'users.id')
+                                ->select('comments.*', 'users.username')
+                                ->orderBy('created_at', 'asc')->get();
                 if($item)
                     return view('user.itemPage')->with(['item' => $item ,'rate' => $rate ,'comments' => $comments ]);
                 else

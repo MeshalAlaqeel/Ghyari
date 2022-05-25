@@ -228,7 +228,7 @@ html {
   }
 }
 
-product-remove {
+.product-remove {
   /* margin: 3px;
       padding: 8px 10px; */
   /* font-size: 1rem; */
@@ -289,3 +289,8 @@ select {
 .invv {
   display: none;
 }
+
+.container{
+  margin-top: 100px;
+}
+

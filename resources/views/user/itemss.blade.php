@@ -1,4 +1,4 @@
-@extends('includes.master')
+@extends('includes.home')
 
 @section('title')
     Items
@@ -28,12 +28,12 @@
                     @endforeach
                 </ul>
             @endif
-            
-            @if (!empty($success))
-            <div class="green-Messages">{{$success}}</div>
+
+            @if (session()->has('success'))
+                <div class="green-Messages">{{session()->get('success')}}</div>
             @endif
-            @if (!empty($fail))
-            <div class="red-Messages">{{$fail}}</div>
+            @if (session()->has('fail'))
+                <div class="red-Messages">{{session()->get('fail')}}</div>
             @endif
         </div>
 

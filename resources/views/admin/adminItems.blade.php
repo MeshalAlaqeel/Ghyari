@@ -82,11 +82,11 @@
             </ul>
         @endif
 
-        @if (!empty($success))
-            <div style="color: green">{{$success}}</div>
+        @if (session()->has('success'))
+            <div style="color: green">{{session()->get('success')}}</div>
         @endif
-        @if (!empty($fail))
-            <div style="color: red">{{$fail}}</div>
+        @if (session()->has('fail'))
+            <div style="color: red">{{session()->get('fail')}}</div>
         @endif
     </div>
     <br />
@@ -109,6 +109,7 @@
                         <tr>
                             <td> Image</td>
                             <td> Name</td>
+                            <td> Company</td>
                             <td> Price</td>
                             <td> Quantity</td>
                             <td> Category</td>
@@ -119,6 +120,7 @@
                                     
                                     <td><img src="image/{{$item->image }}" alt="" style="height: 50px; width:50px;"><br/></td>
                                     <td>{{$item->name }}<br/></td>
+                                    <td>{{$item->company_name }}<br/></td>
                                     <td>{{$item->price }}<br/></td>
                                     <td>{{$item->quantity }}<br/></td>
                                     <td>{{$item->category }}<br/></td>

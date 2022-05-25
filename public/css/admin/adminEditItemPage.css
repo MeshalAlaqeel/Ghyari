@@ -1,5 +1,4 @@
-/* Google Fonts Import Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -202,6 +201,7 @@ hr {
   background-color: #fff;
   border-radius: 10px;
   width: 500px;
-  margin-left: 430px;
+  margin-left: 230px;
+  padding-left: 100px;
 
 }

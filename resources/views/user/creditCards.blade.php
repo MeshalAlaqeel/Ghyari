@@ -77,7 +77,7 @@
         <h3 class="add">Want to add new Credit Card? <a href="{{route('showAddCreditCard')}}">Click Here.</a> </h3>
 
         
-        <div class="container-message">
+        <div class="message">
             @if ($errors->any())
                 <ul>
                     @foreach ($errors->all() as $error)

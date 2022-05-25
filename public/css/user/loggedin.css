@@ -132,6 +132,8 @@ body{
    border-radius: 5px;
    margin-left: 5px;
    font-size: 14px;
+   height: 300px;
+   width: 300px;
 }
 .col-4 img{
    width: 100%;

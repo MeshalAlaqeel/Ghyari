@@ -78,7 +78,7 @@
                     <div class="txt_field" id="map" style="width: 100%; height: 400px; border-radius: 10px;"></div>
                     <input type="hidden" class="form-control" id="latitude" name="lat" placeholder="lat" value="" required>
                     <input type="hidden" class="form-control" id="longitude" name="lng" placeholder="lng" value="" required >
-                    <input type="submit" value="Update Your Address" />
+                    <input type="submit" value="Save Address" />
                 </div>
             @endif
             

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -277,9 +277,11 @@ hr {
     padding: 0 40px;
     box-sizing: border-box;
 }
-
+.container{
+    margin-top: 100px;
+}
 .message{ 
-    margin-left : 400px ;
+    margin-left : 500px ;
     /* padding-left: 40px;
     padding-right: 40px; */
     margin-top : 20px ;

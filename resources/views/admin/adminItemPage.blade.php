@@ -36,13 +36,13 @@
         <h2>Edit Item</h2>
         <form action="{{route('editItem')}}" method="post" class="">
             @csrf
-            <input type="hidden" name="itemId" value={{$item->id}}>
+            <input type="hidden" name="itemId" value="{{$item->id}}">
             <div class="row">
                 <div class="col-25">
                     <label for="name">Item Name</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="name" name="name" placeholder="Name.." value={{$item->name}} required/>
+                    <input type="text" id="name" name="name" placeholder="Name.." value="{{$item->name}}" required/>
                 </div>
             </div>
             <div class="row">
@@ -50,10 +50,11 @@
                     <label for="Company">Item Company</label>
                 </div>
                 <div class="col-75">
-                    <select id="Company" name="company_name" value={{$item->company_name}}>
-                        <option value="ford">Ford</option>
-                        <option value="">----</option>
-                        <option value="">----</option>
+                    <select id="Company" name="company_name" value="{{$item->company_name}}" >
+                        <option value="Chevorlet">Chevorlet</option>
+                        <option value="Dodge">Dodge</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Toyota">Toyota</option>
                     </select>
                 </div>
             </div>
@@ -70,7 +71,7 @@
                     <label for="Price">Item Price</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="Price" name="price" placeholder="Price.." value={{$item->price}} required/>
+                    <input type="text" id="Price" name="price" placeholder="Price.." value="{{$item->price}}" required/>
                 </div>
             </div>
             <div class="row">
@@ -78,10 +79,14 @@
                     <label for="Category">Item Category</label>
                 </div>
                 <div class="col-75">
-                    <select id="Category" name="category" value={{$item->category}}>
-                        <option value="oil">Oil</option>
-                        <option value="">----</option>
-                        <option value="">----</option>
+                    <select id="Category" name="category" value="{{$item->category}}">
+                        <option value="Engine parts">Engine parts</option>
+                        <option value="Brakes">Brakes</option>
+                        <option value="Suspensions">Suspensions</option>
+                        <option value="Body parts">Body parts</option>
+                        <option value="Oils and Filters">Oils and Filters</option>
+                        <option value="Lighting">Lighting</option>
+                        <option value="Cooling system">Cooling system</option>
                     </select>
                 </div>
             </div>
@@ -90,7 +95,7 @@
                     <label for="Quantity">Item Quantity</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="Quantity" name="quantity" placeholder="Quantity.." value={{$item->quantity}} required/>
+                    <input type="text" id="Quantity" name="quantity" placeholder="Quantity.." value="{{$item->quantity}}" required/>
                 </div>
             </div>
             <div class="row">
@@ -107,7 +112,7 @@
                 </div>
                 <div class="col-75">
                     {{-- <textarea id="Description" name="description" placeholder="Write Description.." style="height: 200px;" value={{$item->description}} required></textarea> --}}
-                    <input type="text" id="Description" name="description" placeholder="Write Description.." style="height: 200px;" value={{$item->description}} required>
+                    <input type="text" id="Description" name="description" placeholder="Write Description.." style="height: 200px;" value="{{$item->description}}" required>
                 </div>
             </div>
 
@@ -160,7 +165,7 @@
     <!--------------------------Pop up message for deletinig user account---------------------------->
     <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="closee" title="closee Modal">×</span>
-        <form action="{{route('deleteItem')}}" method="post" class="modal-content">
+        <form action="{{route('deleteComment')}}" method="post" class="modal-content">
             @csrf
             <input type="hidden" name="id" value="{{$item->id }}" />
             <div class="containerr">

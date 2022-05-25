@@ -79,7 +79,7 @@ class userController extends Controller
         if (Session::has('loginId')) {
             Session::pull('loginId');
         }
-        return redirect('login');
+        return redirect('');
     }
     
     public function sendResetLink (Request $request) {
@@ -268,6 +268,14 @@ class userController extends Controller
         }
     }
     
+    public function showHome () {
+
+    $Featured = DB::table('items')->take(4)->get();
+    $Latest = DB::table('items')->orderBy('id', 'desc')->take(4)->get();
+    $HighestRated = DB::table('items')->orderBy('rate', 'desc')->first();
+
+    return view('user.home')->with(['Featured' => $Featured , 'Latest' => $Latest ,'HighestRated' => $HighestRated ]);
+}
     public function showLoggedin () {
         if (Session::has('loginId') ) {
             if (session()->get('loginRole')==2) {

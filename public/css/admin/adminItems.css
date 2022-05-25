@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
 
 
 /* body {
@@ -99,7 +99,7 @@ h1 {
 }
 
 .table{
-    width:75%;
+    /* width:75%; */
     margin-bottom:1rem;
     color:#212529;
 }
@@ -118,9 +118,10 @@ h1 {
   text-align: center;
 }
 .container-message{
-    background-color: #fff;
-    border-radius: 10px;
-    width: 500px;
-    margin-left: 430px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 500px;
+  margin-left: 230px;
+  padding-left: 100px;
 
 }

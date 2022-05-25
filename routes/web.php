@@ -29,7 +29,7 @@ use App\Models\comment;
 
 // GETs
 
-// Route::get('/',[userController::class, 'showRegister'])->name('Home');
+Route::get('/',[userController::class, 'showHome'])->name('showHome');
 Route::get('/register',[userController::class, 'showRegister'])->name('showRegister');
 Route::get('/login',[userController::class, 'showLogin'])->name('showLogin');
 Route::get('/loggedin',[userController::class, 'showLoggedin'])->name('showLoggedin');

@@ -71,11 +71,11 @@
 
                         <div class="product-info">
                             <div class="product-info-top">
-                                <h2 class="sm-title">Dodge</h2>
+                                <h2 class="sm-title">{{$item->company_name}}</h2>
                                 <div class="rating">
                                     <span><i class="fas fa-star" style="color: #ffc107"></i></span>
 
-                                    <span>4.7(21)</span>
+                                    <span>{{$item->rate}}</span>
                                 </div>
                             </div>
                             <a href="/itemPage/{{$item->id}}" class="product-name">{{$item->name }}</a>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap");
+
 ul{
     list-style: none;
 }
@@ -7,6 +7,7 @@ a{
 }
 body{
     background-color: #f0f0f5;
+    font-family: 'Times New Roman', serif;
 }
 
 nav{
@@ -32,7 +33,7 @@ nav #centermenu{
 nav #loginmenu{
     display: flex;
     margin-right: -20px;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 

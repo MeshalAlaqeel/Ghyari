@@ -51,9 +51,10 @@
                 </div>
                 <div class="col-75">
                     <select id="Company" name="company_name" >
-                        <option value="ford">Ford</option>
-                        <option value="">----</option>
-                        <option value="">----</option>
+                        <option value="Chevorlet">Chevorlet</option>
+                        <option value="Dodge">Dodge</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Toyota">Toyota</option>
                     </select>
                 </div>
             </div>
@@ -79,9 +80,13 @@
                 </div>
                 <div class="col-75">
                     <select id="Category" name="category">
-                        <option value="oil">Oil</option>
-                        <option value="">----</option>
-                        <option value="">----</option>
+                        <option value="Engine parts">Engine parts</option>
+                        <option value="Brakes">Brakes</option>
+                        <option value="Suspensions">Suspensions</option>
+                        <option value="Body parts">Body parts</option>
+                        <option value="Oils and Filters">Oils and Filters</option>
+                        <option value="Lighting">Lighting</option>
+                        <option value="Cooling system">Cooling system</option>
                     </select>
                 </div>
             </div>

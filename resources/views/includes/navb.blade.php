@@ -8,7 +8,7 @@
             <img src="{{ asset('image/ghyari.png')}}"/>
         </a>
         <ul class="menu" id="centermenu">
-            <li><a href="{{route('showLoggedin')}}">Home</a></li>
+            <li><a href="{{route('showHome')}}">Home</a></li>
             
             <li>
                 <div class="dropdown">
@@ -98,21 +98,7 @@
         </div>
     
         <ul class="menu" id="loginmenu">
-            <li>
-                <div class="dropdown">
-                    <ul class="dropbtn">
-                        {{session()->get('loginName')}}
-                        <i class="fa fa-caret-down"></i>
-                    </ul>
-                    <ui class="dropdown-content">
-                        <a href="{{route('showEditInformation')}}">Account</a>
-                        <a href="{{route('showOrders')}}">Orders</a>
-                        <a href="{{route('showCreditCards')}}">Credit Cards</a>
-                        <a href="{{route('showRemindMe')}}">RemindME</a>
-                        <a href="{{route('logout')}}" class="logout">logout</a>
-                    </ui>
-                </div>
-            </li>
+            <li><a href="{{route('showLogin')}}">Login</a></li> 
         </ul>
     </nav>
     

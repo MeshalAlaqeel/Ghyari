@@ -1,4 +1,4 @@
-@extends('includes.master')
+@extends('includes.home')
 
 @section('title')
     Items

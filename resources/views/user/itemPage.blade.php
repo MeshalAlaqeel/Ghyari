@@ -44,7 +44,7 @@
                         <a href="#" class="product-link">{{$item->company_name }}</a>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
-                            <span>{{$item->rate }}(21)</span>
+                            <span>{{$item->rate }}</span>
                         </div>
                         <div class="product-price">
                             <p class="new-price">Price: <span>${{$item->price }}</span></p>
@@ -111,7 +111,7 @@
                     <br>
                     @foreach ($comments as $comment)
                         <div class="comment">
-                            <h4>{{$comment->user_id }}</h4>
+                            <h4>{{$comment->username }}</h4>
                             <p>{{$comment->comment }} </p>
                             <i class="fa fa-calendar"></i>{{$comment->created_at }}</li>
                         </div>
